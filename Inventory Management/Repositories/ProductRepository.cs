@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Inventory_Managment.Repositories
 {
+    // Repository pattern
     class ProductRepository : BaseRepository<Product>
     {
-        protected string tableName = Product.tableName;
-
         public override Product GetOne(int id)
         {
             throw new NotImplementedException();
@@ -24,13 +23,18 @@ namespace Inventory_Managment.Repositories
 
         public override void Insert(Product entity)
         {
-            string query = $"INSERT INTO {tableName} (name, barcode) VALUES('John Smith', '33')";
+            string query = $"INSERT INTO {Product.tableName} (name, barcode) VALUES('@name', '@barcode')";
 
             //open connection
             if (_dbConnection.OpenConnection() == true)
             {
                 //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.Parameters.AddWithValue("@name", "Myname");
+                cmd.Parameters.AddWithValue("@barcode", "Myaddress");
+                //Assign the connection using Connection
+                cmd.Connection = _dbConnection.Connection;
 
                 //Execute command
                 cmd.ExecuteNonQuery();
@@ -42,7 +46,7 @@ namespace Inventory_Managment.Repositories
 
         public override void Update(int id, Product product)
         {
-            string query = $"UPDATE {tableName} SET name='Joe', age='22' WHERE id='{id}'";
+            string query = $"UPDATE {Product.tableName} SET name='@name', barcode='@barcode' WHERE id='{id}'";
 
             //Open connection
             if (_dbConnection.OpenConnection() == true)
@@ -51,6 +55,8 @@ namespace Inventory_Managment.Repositories
                 MySqlCommand cmd = new MySqlCommand();
                 //Assign the query using CommandText
                 cmd.CommandText = query;
+                cmd.Parameters.AddWithValue("@name", "Myname");
+                cmd.Parameters.AddWithValue("@barcode", "Myaddress");
                 //Assign the connection using Connection
                 cmd.Connection = _dbConnection.Connection;
 
@@ -64,7 +70,7 @@ namespace Inventory_Managment.Repositories
 
         public override void Delete(int id)
         {
-            string query = $"DELETE FROM {tableName} WHERE id='{id}'";
+            string query = $"DELETE FROM {Product.tableName} WHERE id='{id}'";
 
             if (_dbConnection.OpenConnection() == true)
             {

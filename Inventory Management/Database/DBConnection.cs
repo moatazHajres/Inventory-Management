@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,22 +9,20 @@ using MySql.Data.MySqlClient;
 
 namespace Inventory_Managment.Database
 {
+    // Singleton pattern
     class DBConnection
     {
-        private string Server = "localhost";
-        private string DatabaseName = "invintory_managment";
-        private string UserName = "root";
-        private string Password = "";
+        private static DBConnection _instance = null;
+
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["default"].ConnectionString;
 
         public MySqlConnection Connection { get; set; }
 
-        private static DBConnection _instance = null;
-
-        // Singleton pattern
         private DBConnection()
         {
+            Connection = new MySqlConnection(connectionString);
         }
-        
+
         public static DBConnection Instance()
         {
             if (_instance == null)
@@ -34,13 +33,6 @@ namespace Inventory_Managment.Database
         //open connection to database
         public bool OpenConnection()
         {
-            string connectionString =
-                "SERVER=" + Server + ";" +
-                "DATABASE=" + DatabaseName + ";" +
-                "UID=" + UserName + ";" +
-                "PASSWORD=" + Password + ";";
-            Connection = new MySqlConnection(connectionString);
-
             try
             {
                 Connection.Open();
@@ -81,7 +73,5 @@ namespace Inventory_Managment.Database
                 return false;
             }
         }
-
     }
-
 }
