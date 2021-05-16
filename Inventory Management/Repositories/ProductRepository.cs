@@ -23,22 +23,32 @@ namespace Inventory_Management.Repositories
             {
                 //Create Command
                 MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                //Read the data and store them in the product object
-                if (dataReader.Read())
+                
+                try
                 {
-                    product.Id = (int)dataReader["id"];
-                    product.Name = dataReader["name"].ToString();
-                    product.Barcode = dataReader["barcode"].ToString();
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the product object
+                    if (dataReader.Read())
+                    {
+                        product.Id = (int)dataReader["id"];
+                        product.Name = dataReader["name"].ToString();
+                        product.Barcode = dataReader["barcode"].ToString();
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();                    
                 }
-
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                _dbConnection.CloseConnection();
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    //close Connection
+                    _dbConnection.CloseConnection();
+                }
 
                 //return list to be displayed
                 return product;
@@ -61,25 +71,32 @@ namespace Inventory_Management.Repositories
             {
                 //Create Command
                 MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
                 
-                //Read the data and store them in the list
-                while (dataReader.Read())
+                try
                 {
-                    products.Add(new Product() {
-                        Id = (int) dataReader["id"],
-                        Name = dataReader["name"].ToString(),
-                        Barcode = dataReader["barcode"].ToString()
-                    });
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    //Read the data and store them in the list
+                    while (dataReader.Read())
+                    {
+                        products.Add(new Product() {
+                            Id = (int) dataReader["id"],
+                            Name = dataReader["name"].ToString(),
+                            Barcode = dataReader["barcode"].ToString()
+                        });
+                    }
+                    //close Data Reader
+                    dataReader.Close();
                 }
-
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                _dbConnection.CloseConnection();
-
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    //close Connection
+                    _dbConnection.CloseConnection();
+                }
                 //return list to be displayed
                 return products;
             }
@@ -97,19 +114,29 @@ namespace Inventory_Management.Repositories
             if (_dbConnection.OpenConnection() == true)
             {
                 //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
+                MySqlCommand cmd = new MySqlCommand
+                {
+                    //Assign the query using CommandText
+                    CommandText = query
+                };
                 cmd.Parameters.AddWithValue("@name", product.Name);
                 cmd.Parameters.AddWithValue("@barcode", product.Barcode);
                 //Assign the connection using Connection
                 cmd.Connection = _dbConnection.Connection;
 
-                //Execute command
-                cmd.ExecuteNonQuery();
-
-                //close connection
-                _dbConnection.CloseConnection();
+                try
+                {
+                    //Execute query
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally{
+                    //close connection
+                    _dbConnection.CloseConnection();
+                }
             }
         }
 
@@ -121,19 +148,29 @@ namespace Inventory_Management.Repositories
             if (_dbConnection.OpenConnection() == true)
             {
                 //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
+                MySqlCommand cmd = new MySqlCommand
+                {
+                    //Assign the query using CommandText
+                    CommandText = query
+                };
                 cmd.Parameters.AddWithValue("@name", product.Name);
                 cmd.Parameters.AddWithValue("@barcode", product.Barcode);
                 //Assign the connection using Connection
                 cmd.Connection = _dbConnection.Connection;
 
-                //Execute query
-                cmd.ExecuteNonQuery();
-
-                //close connection
-                _dbConnection.CloseConnection();
+                try
+                {
+                    //Execute query
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally{
+                    //close connection
+                    _dbConnection.CloseConnection();
+                }
             }
         }
 
@@ -144,8 +181,19 @@ namespace Inventory_Management.Repositories
             if (_dbConnection.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
-                cmd.ExecuteNonQuery();
-                _dbConnection.CloseConnection();
+                try
+                {
+                    //Execute query
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally{
+                    //close connection
+                    _dbConnection.CloseConnection();
+                }
             }
         }
     }
