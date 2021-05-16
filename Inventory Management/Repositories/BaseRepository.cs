@@ -1,4 +1,5 @@
 ﻿using Inventory_Management.Database;
+using Inventory_Management.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace Inventory_Management.Repositories
 {
     // Repository pattern
-    abstract class BaseRepository<E>
+    abstract class BaseRepository<E> where E : BaseEntity
     {
         protected DBConnection _dbConnection;
 

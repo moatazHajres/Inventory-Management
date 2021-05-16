@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Inventory_Management.Repositories
 {
-    // Repository pattern
-    class ProductRepository : BaseRepository<Product>
+    class StockRepository : BaseRepository<Stock>
     {
-        public override Product GetOne(int id)
+        public override Stock GetOne(int id)
         {
-            string query = $"SELECT * FROM {Product.tableName} WHERE id='{id}'";
+            /* ! TODO: ! */
+            string query = $"SELECT * FROM {Stock.tableName} WHERE id='{id}'";
 
-            //Create a product object to store the result
-            Product product = new Product();
+            //Create a stock object to store the result
+            Stock stock = new Stock();
 
             //Open connection
             if (_dbConnection.OpenConnection() == true)
@@ -26,12 +26,17 @@ namespace Inventory_Management.Repositories
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                //Read the data and store them in the product object
+                //Read the data and store them in the stock object
                 if (dataReader.Read())
                 {
-                    product.Id = (int)dataReader["id"];
-                    product.Name = dataReader["name"].ToString();
-                    product.Barcode = dataReader["barcode"].ToString();
+                    stock.Id = (int)dataReader["id"];
+                    stock.Quantity = (int)dataReader["quantity"];
+                    stock.Product = new Product()
+                    {
+                        Id = (int)dataReader["product_id"],
+                        Name = dataReader["name"].ToString(),
+                        Barcode = dataReader["barcode"].ToString()
+                    };
                 }
 
                 //close Data Reader
@@ -41,21 +46,22 @@ namespace Inventory_Management.Repositories
                 _dbConnection.CloseConnection();
 
                 //return list to be displayed
-                return product;
+                return stock;
             }
             else
             {
-                return product;
+                return stock;
             }
         }
 
-        public override List<Product> GetAll()
+        public override List<Stock> GetAll()
         {
-            string query = $"SELECT * FROM {Product.tableName}";
+            /* ! TODO: ! */
+            string query = $"SELECT * FROM {Stock.tableName}";
 
             //Create a list to store the result
-            List<Product> products = new List<Product>();
-            
+            List<Stock> stocks = new List<Stock>();
+
             //Open connection
             if (_dbConnection.OpenConnection() == true)
             {
@@ -63,14 +69,20 @@ namespace Inventory_Management.Repositories
                 MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
-                
+
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    products.Add(new Product() {
-                        Id = (int) dataReader["id"],
-                        Name = dataReader["name"].ToString(),
-                        Barcode = dataReader["barcode"].ToString()
+                    stocks.Add(new Stock()
+                    {
+                        Id = (int)dataReader["id"],
+                        Quantity = (int)dataReader["quantity"],
+                        Product = new Product()
+                        {
+                            Id = (int)dataReader["product_id"],
+                            Name = dataReader["name"].ToString(),
+                            Barcode = dataReader["barcode"].ToString()
+                        }
                     });
                 }
 
@@ -81,27 +93,29 @@ namespace Inventory_Management.Repositories
                 _dbConnection.CloseConnection();
 
                 //return list to be displayed
-                return products;
+                return stocks;
             }
             else
             {
-                return products;
+                return stocks;
             }
         }
 
-        public override void Insert(Product product)
+        public override void Insert(Stock stock)
         {
-            string query = $"INSERT INTO {Product.tableName} (name, barcode) VALUES('@name', '@barcode')";
+            string query = $"INSERT INTO {Stock.tableName} (quantity, product_id) VALUES('@quantity', '@product_id')";
 
             //open connection
             if (_dbConnection.OpenConnection() == true)
             {
                 //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                cmd.Parameters.AddWithValue("@name", product.Name);
-                cmd.Parameters.AddWithValue("@barcode", product.Barcode);
+                MySqlCommand cmd = new MySqlCommand
+                {
+                    //Assign the query using CommandText
+                    CommandText = query
+                };
+                cmd.Parameters.AddWithValue("@quantity", stock.Quantity);
+                cmd.Parameters.AddWithValue("@product_id", stock.Product.Id);
                 //Assign the connection using Connection
                 cmd.Connection = _dbConnection.Connection;
 
@@ -113,19 +127,21 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public override void Update(int id, Product product)
+        public override void Update(int id, Stock stock)
         {
-            string query = $"UPDATE {Product.tableName} SET name='@name', barcode='@barcode' WHERE id='{id}'";
+            string query = $"UPDATE {Stock.tableName} SET quantity='@quantity', product_id='@product_id' WHERE id='{id}'";
 
             //Open connection
             if (_dbConnection.OpenConnection() == true)
             {
                 //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                cmd.Parameters.AddWithValue("@name", product.Name);
-                cmd.Parameters.AddWithValue("@barcode", product.Barcode);
+                MySqlCommand cmd = new MySqlCommand
+                {
+                    //Assign the query using CommandText
+                    CommandText = query
+                };
+                cmd.Parameters.AddWithValue("@quantity", stock.Quantity);
+                cmd.Parameters.AddWithValue("@product_id", stock.Product.Id);
                 //Assign the connection using Connection
                 cmd.Connection = _dbConnection.Connection;
 
@@ -139,7 +155,7 @@ namespace Inventory_Management.Repositories
 
         public override void Delete(int id)
         {
-            string query = $"DELETE FROM {Product.tableName} WHERE id='{id}'";
+            string query = $"DELETE FROM {Stock.tableName} WHERE id='{id}'";
 
             if (_dbConnection.OpenConnection() == true)
             {
