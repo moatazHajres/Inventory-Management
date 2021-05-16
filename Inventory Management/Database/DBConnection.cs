@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace Inventory_Managment.Database
+namespace Inventory_Management.Database
 {
     // Singleton pattern
     class DBConnection

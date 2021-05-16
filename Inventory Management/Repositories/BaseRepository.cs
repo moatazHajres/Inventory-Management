@@ -1,11 +1,11 @@
-﻿using Inventory_Managment.Database;
+﻿using Inventory_Management.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory_Managment.Repositories
+namespace Inventory_Management.Repositories
 {
     // Repository pattern
     abstract class BaseRepository<E>
