@@ -17,9 +17,11 @@ CREATE TABLE products (
 
 CREATE TABLE stock (
     id int unsigned NOT NULL AUTO_INCREMENT,
-    quantity varchar(255) NOT NULL,
-    product_id int,
+    quantity int NOT NULL,
+    product_id int unsigned NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (product_id) REFERENCES products(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
