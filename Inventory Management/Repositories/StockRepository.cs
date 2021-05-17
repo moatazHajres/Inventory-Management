@@ -66,7 +66,11 @@ namespace Inventory_Management.Repositories
         public override List<Stock> GetAll()
         {
             /* ! TODO: ! */
-            string query = $"SELECT * FROM {Stock.tableName}";
+            string query = $"SELECT `stock`.`id`, SUM(`quantity`) AS `quantity`, `stock`.`product_id`, `products`.`name`, `products`.`barcode`, `products`.`price` " +
+                $"FROM {Stock.tableName} " +
+                $"INNER JOIN `products`" +
+                $" ON `stock`.`product_id` = `products`.`id` " +
+                $"GROUP BY `product_id`";
 
             //Create a list to store the result
             List<Stock> stocks = new List<Stock>();
