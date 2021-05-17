@@ -13,7 +13,7 @@ namespace Inventory_Management.Repositories
     {
         public override Product GetOne(int id)
         {
-            string query = $"SELECT * FROM {Product.tableName} WHERE id='{id}'";
+            string query = $"SELECT * FROM {Product.tableName} WHERE id={id}";
 
             //Create a product object to store the result
             Product product = new Product();
@@ -108,22 +108,16 @@ namespace Inventory_Management.Repositories
 
         public override void Insert(Product product)
         {
-            string query = $"INSERT INTO {Product.tableName} (name, barcode) VALUES('@name', '@barcode')";
+            string query = $"INSERT INTO {Product.tableName} (name, barcode) VALUES(@name, @barcode)";
 
             //open connection
             if (_dbConnection.OpenConnection() == true)
             {
                 //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand
-                {
-                    //Assign the query using CommandText
-                    CommandText = query
-                };
+                MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
                 cmd.Parameters.AddWithValue("@name", product.Name);
                 cmd.Parameters.AddWithValue("@barcode", product.Barcode);
-                //Assign the connection using Connection
-                cmd.Connection = _dbConnection.Connection;
-
+                
                 try
                 {
                     //Execute query
@@ -142,22 +136,16 @@ namespace Inventory_Management.Repositories
 
         public override void Update(int id, Product product)
         {
-            string query = $"UPDATE {Product.tableName} SET name='@name', barcode='@barcode' WHERE id='{id}'";
+            string query = $"UPDATE {Product.tableName} SET name=@name, barcode=@barcode WHERE id={id}";
 
             //Open connection
             if (_dbConnection.OpenConnection() == true)
             {
                 //create mysql command
-                MySqlCommand cmd = new MySqlCommand
-                {
-                    //Assign the query using CommandText
-                    CommandText = query
-                };
+                MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
                 cmd.Parameters.AddWithValue("@name", product.Name);
                 cmd.Parameters.AddWithValue("@barcode", product.Barcode);
-                //Assign the connection using Connection
-                cmd.Connection = _dbConnection.Connection;
-
+                
                 try
                 {
                     //Execute query
@@ -176,7 +164,7 @@ namespace Inventory_Management.Repositories
 
         public override void Delete(int id)
         {
-            string query = $"DELETE FROM {Product.tableName} WHERE id='{id}'";
+            string query = $"DELETE FROM {Product.tableName} WHERE id={id}";
 
             if (_dbConnection.OpenConnection() == true)
             {

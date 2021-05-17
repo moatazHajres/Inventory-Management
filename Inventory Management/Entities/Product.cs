@@ -10,7 +10,7 @@ namespace Inventory_Management.Entities
     {
         public static string tableName = "products";
 
-        public int Id { get; set; } = 0;
+        public int Id { get; set; }
 
         public string Name { get; set; } = "";
 
