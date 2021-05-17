@@ -27,5 +27,7 @@ namespace Inventory_Management.Repositories
         public abstract void Update(int id, E entity);
 
         public abstract void Delete(int id);
+
+        public abstract List<E> Search(String keyword);
     }
 }

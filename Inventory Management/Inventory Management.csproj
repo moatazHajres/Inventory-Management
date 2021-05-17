@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddProduct.cs">
+    <Compile Include="Products.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddProduct.Designer.cs">
-      <DependentUpon>AddProduct.cs</DependentUpon>
+    <Compile Include="Products.Designer.cs">
+      <DependentUpon>Products.cs</DependentUpon>
     </Compile>
     <Compile Include="CategoriesManagement.cs">
       <SubType>Form</SubType>
@@ -64,12 +64,6 @@
       <DependentUpon>CategoriesManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DBConnection.cs" />
-    <Compile Include="EditProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditProduct.Designer.cs">
-      <DependentUpon>EditProduct.cs</DependentUpon>
-    </Compile>
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Stock.cs" />
@@ -85,6 +79,9 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\StockRepository.cs" />
+    <EmbeddedResource Include="Products.resx">
+      <DependentUpon>Products.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CategoriesManagement.resx">
       <DependentUpon>CategoriesManagement.cs</DependentUpon>
     </EmbeddedResource>
