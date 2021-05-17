@@ -12,30 +12,29 @@ using Inventory_Management.Entities;
 
 namespace Inventory_Management
 {
-    public partial class Products : Form
+    public partial class ProductForm : Form
     {
         ProductRepository productRepository;
-        private int ProductIdToUpdate = -1;
-        private int ProductIdToDelete = -1;
+        private int selectedProductId = -1;
 
-        public Products()
+        public ProductForm()
         {
             InitializeComponent();
         }
 
-        private void Products_Load(object sender, EventArgs e)
+        private void ProductForm_Load(object sender, EventArgs e)
         {
-            productRepository = new ProductRepository();
-            ProductsDgv.DataSource = productRepository.GetAll();
             EditProductBtn.Enabled = false;
             DeleteProductBtn.Enabled = false;
+            productRepository = new ProductRepository();
+            ProductsDgv.DataSource = productRepository.GetAll();
         }
 
         private void AddProductBtn_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(ProductNameTxt.Text) || String.IsNullOrWhiteSpace(ProductBarcodeTxt.Text))
+            if (String.IsNullOrWhiteSpace(ProductNameTxt.Text) || String.IsNullOrWhiteSpace(ProductBarcodeTxt.Text))
             {
-                MessageBox.Show("Please make sure to fill both fields");
+                MessageBox.Show("✖ Please make sure to fill both fields");
                 
                 return;
             }
@@ -45,9 +44,9 @@ namespace Inventory_Management
                 Barcode = ProductBarcodeTxt.Text
             });
 
-            MessageBox.Show("Product Added !");
+            MessageBox.Show("✔ Product Added Successfully");
 
-            ResetFields();
+            ResetForm();
             ReloadProducts();
 
         }
@@ -63,8 +62,11 @@ namespace Inventory_Management
             ProductsDgv.DataSource = productRepository.GetAll();
         }
 
-        public void ResetFields()
+        public void ResetForm()
         {
+            selectedProductId = -1;
+            EditProductBtn.Enabled = false;
+            DeleteProductBtn.Enabled = false;
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl.GetType() == typeof(TextBox))
@@ -80,28 +82,27 @@ namespace Inventory_Management
             if (e.RowIndex > -1)
             {
                 EditProductBtn.Enabled = true;
+                DeleteProductBtn.Enabled = true;
                 ProductNameTxt.Text = ProductsDgv.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                 ProductBarcodeTxt.Text = ProductsDgv.Rows[e.RowIndex].Cells["Barcode"].Value.ToString();
-                ProductIdToUpdate = (int)ProductsDgv.Rows[e.RowIndex].Cells["Id"].Value;
+                selectedProductId = (int)ProductsDgv.Rows[e.RowIndex].Cells["Id"].Value;
             }
         }
 
         private void EditProductBtn_Click(object sender, EventArgs e)
         {
-            if(ProductIdToUpdate > 0)
+            if (selectedProductId > 0)
             {
-                productRepository.Update(ProductIdToUpdate, new Product()
+                productRepository.Update(selectedProductId, new Product()
                 {
                     Name = ProductNameTxt.Text,
                     Barcode = ProductBarcodeTxt.Text
                 });
 
-                MessageBox.Show("Product Updated !");
-
-                ResetFields();
+                ResetForm();
                 ReloadProducts();
-                ProductIdToUpdate = -1;
-                EditProductBtn.Enabled = false;
+
+                MessageBox.Show("✔ Product Updated Successfully");
             }
         }
 
@@ -109,22 +110,24 @@ namespace Inventory_Management
         {
             if (e.RowIndex > -1)
             {
+                EditProductBtn.Enabled = true;
                 DeleteProductBtn.Enabled = true;
-                ProductIdToDelete = (int)ProductsDgv.Rows[e.RowIndex].Cells["Id"].Value;
+                ProductNameTxt.Text = ProductsDgv.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                ProductBarcodeTxt.Text = ProductsDgv.Rows[e.RowIndex].Cells["Barcode"].Value.ToString();
+                selectedProductId = (int)ProductsDgv.Rows[e.RowIndex].Cells["Id"].Value;
             }
         }
 
         private void DeleteProductBtn_Click(object sender, EventArgs e)
         {
-            if (ProductIdToDelete > 0)
+            if (selectedProductId > 0)
             {
-                productRepository.Delete(ProductIdToUpdate);
+                productRepository.Delete(selectedProductId);
 
-                MessageBox.Show("Product Deleted !");
-
+                ResetForm();
                 ReloadProducts();
-                ProductIdToDelete = -1;
-                DeleteProductBtn.Enabled = false;
+
+                MessageBox.Show("✔ Product Deleted Successfully");
             }
         }
 
@@ -132,21 +135,21 @@ namespace Inventory_Management
         {
             if (String.IsNullOrWhiteSpace(SearchProductsTxt.Text))
             {
-                MessageBox.Show("Please check you input");
+                MessageBox.Show("✖ Please check your input");
 
                 return;
             }
 
             List<Product> results = productRepository.Search(SearchProductsTxt.Text);
             
-            if(results.Count > 0)
+            if (results.Count > 0)
             {
                 ProductsDgv.DataSource = null;
                 ProductsDgv.DataSource = results;
             } 
             else
             {
-                MessageBox.Show("No redults was found !");
+                MessageBox.Show("✖ No redults was found");
 
                 return;
             }

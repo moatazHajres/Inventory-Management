@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Inventory_Management.Repositories
 {
     // Repository pattern
-    abstract class BaseRepository<E> where E : BaseEntity
+    abstract class BaseRepository<EntityType> where EntityType : BaseEntity
     {
         protected DBConnection _dbConnection;
 
@@ -18,16 +18,16 @@ namespace Inventory_Management.Repositories
             _dbConnection = DBConnection.Instance();
         }
 
-        public abstract E GetOne(int id);
+        public abstract EntityType GetOne(int id);
 
-        public abstract List<E> GetAll();
+        public abstract List<EntityType> GetAll();
 
-        public abstract void Insert(E entity);
+        public abstract void Insert(EntityType entity);
 
-        public abstract void Update(int id, E entity);
+        public abstract void Update(int id, EntityType entity);
 
         public abstract void Delete(int id);
 
-        public abstract List<E> Search(String keyword);
+        // public abstract List<EntityType> Search(string keyword);
     }
 }

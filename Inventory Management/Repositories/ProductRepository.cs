@@ -185,9 +185,9 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public override List<Product> Search(String keyword)
+        public List<Product> Search(string keyword)
         {
-            string query = $"SELECT * FROM {Product.tableName} WHERE `name` LIKE {keyword} or `barcode` LIKE {keyword}";
+            string query = $"SELECT * FROM {Product.tableName} WHERE name LIKE %{keyword}% OR barcode LIKE %{keyword}%";
 
             //Create a list to store the result
             List<Product> products = new List<Product>();
