@@ -41,7 +41,8 @@ namespace Inventory_Management
 
             productRepository.Insert(new Product() {
                 Name = ProductNameTxt.Text,
-                Barcode = ProductBarcodeTxt.Text
+                Barcode = ProductBarcodeTxt.Text,
+                Price = (Double)ProductPriceInput.Value
             });
 
             MessageBox.Show("✔ Product Added Successfully");
@@ -74,6 +75,10 @@ namespace Inventory_Management
                     ((TextBox)ctrl).Clear();
 
                 }
+                else if(ctrl.GetType() == typeof(NumericUpDown))
+                {
+                    ((NumericUpDown)ctrl).Value = 0;
+                }
             }
         }
 
@@ -85,6 +90,7 @@ namespace Inventory_Management
                 DeleteProductBtn.Enabled = true;
                 ProductNameTxt.Text = ProductsDgv.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                 ProductBarcodeTxt.Text = ProductsDgv.Rows[e.RowIndex].Cells["Barcode"].Value.ToString();
+                ProductPriceInput.Value = Decimal.Parse(ProductsDgv.Rows[e.RowIndex].Cells["Price"].Value.ToString());
                 selectedProductId = (int)ProductsDgv.Rows[e.RowIndex].Cells["Id"].Value;
             }
         }
@@ -96,7 +102,8 @@ namespace Inventory_Management
                 productRepository.Update(selectedProductId, new Product()
                 {
                     Name = ProductNameTxt.Text,
-                    Barcode = ProductBarcodeTxt.Text
+                    Barcode = ProductBarcodeTxt.Text,
+                    Price = (Double)ProductPriceInput.Value
                 });
 
                 ResetForm();
@@ -114,6 +121,7 @@ namespace Inventory_Management
                 DeleteProductBtn.Enabled = true;
                 ProductNameTxt.Text = ProductsDgv.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                 ProductBarcodeTxt.Text = ProductsDgv.Rows[e.RowIndex].Cells["Barcode"].Value.ToString();
+                ProductPriceInput.Value = Decimal.Parse(ProductsDgv.Rows[e.RowIndex].Cells["Price"].Value.ToString());
                 selectedProductId = (int)ProductsDgv.Rows[e.RowIndex].Cells["Id"].Value;
             }
         }
@@ -153,6 +161,19 @@ namespace Inventory_Management
 
                 return;
             }
+        }
+
+        private void SearchProductsTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchBtn_Click(this, new EventArgs());
+            }
+        }
+
+        private void ResetFieldsBtn_Click(object sender, EventArgs e)
+        {
+            ResetForm();
         }
     }
 }
