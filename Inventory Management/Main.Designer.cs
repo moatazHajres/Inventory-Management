@@ -68,6 +68,7 @@ namespace Inventory_Management
             this.UsersManageBtn.TabIndex = 2;
             this.UsersManageBtn.Text = "Users Management";
             this.UsersManageBtn.UseVisualStyleBackColor = true;
+            this.UsersManageBtn.Click += new System.EventHandler(this.UsersManageBtn_Click);
             // 
             // SearchTxt
             // 

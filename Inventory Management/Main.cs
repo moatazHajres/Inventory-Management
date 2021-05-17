@@ -34,5 +34,10 @@ namespace Inventory_Management
         {
             new ProductForm().ShowDialog();
         }
+
+        private void UsersManageBtn_Click(object sender, EventArgs e)
+        {
+            new UserForm().ShowDialog();
+        }
     }
 }

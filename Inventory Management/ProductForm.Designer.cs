@@ -38,7 +38,7 @@ namespace Inventory_Management
             this.SearchProductsTxt = new System.Windows.Forms.TextBox();
             this.ReloadProductsBtn = new System.Windows.Forms.Button();
             this.SearchBtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.ProductSearchLbl = new System.Windows.Forms.Label();
             this.EditProductBtn = new System.Windows.Forms.Button();
             this.DeleteProductBtn = new System.Windows.Forms.Button();
             this.ProductPriceLbl = new System.Windows.Forms.Label();
@@ -142,14 +142,14 @@ namespace Inventory_Management
             this.SearchBtn.UseVisualStyleBackColor = true;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
-            // label3
+            // ProductSearchLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(382, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 19);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Search";
+            this.ProductSearchLbl.AutoSize = true;
+            this.ProductSearchLbl.Location = new System.Drawing.Point(382, 18);
+            this.ProductSearchLbl.Name = "ProductSearchLbl";
+            this.ProductSearchLbl.Size = new System.Drawing.Size(56, 19);
+            this.ProductSearchLbl.TabIndex = 9;
+            this.ProductSearchLbl.Text = "Search";
             // 
             // EditProductBtn
             // 
@@ -212,7 +212,7 @@ namespace Inventory_Management
             this.Controls.Add(this.ProductPriceLbl);
             this.Controls.Add(this.DeleteProductBtn);
             this.Controls.Add(this.EditProductBtn);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ProductSearchLbl);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.ReloadProductsBtn);
             this.Controls.Add(this.SearchProductsTxt);
@@ -243,7 +243,7 @@ namespace Inventory_Management
         private System.Windows.Forms.TextBox SearchProductsTxt;
         private System.Windows.Forms.Button ReloadProductsBtn;
         private System.Windows.Forms.Button SearchBtn;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ProductSearchLbl;
         private System.Windows.Forms.Button EditProductBtn;
         private System.Windows.Forms.Button DeleteProductBtn;
         private System.Windows.Forms.Label ProductPriceLbl;
