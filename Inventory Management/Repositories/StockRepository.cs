@@ -31,11 +31,11 @@ namespace Inventory_Management.Repositories
                     //Read the data and store them in the stock object
                     if (dataReader.Read())
                     {
-                        stock.Id = (int)dataReader["id"];
-                        stock.Quantity = (int)dataReader["quantity"];
+                        stock.Id = Convert.ToInt32(dataReader["id"]);
+                        stock.Quantity = Convert.ToInt32(dataReader["quantity"]);
                         stock.Product = new Product()
                         {
-                            Id = (int)dataReader["product_id"],
+                            Id = Convert.ToInt32(dataReader["product_id"]),
                             Name = dataReader["name"].ToString(),
                             Barcode = dataReader["barcode"].ToString()
                         };
@@ -85,11 +85,11 @@ namespace Inventory_Management.Repositories
                     {
                         stocks.Add(new Stock()
                         {
-                            Id = (int)dataReader["id"],
-                            Quantity = (int)dataReader["quantity"],
+                            Id = Convert.ToInt32(dataReader["id"]),
+                            Quantity = Convert.ToInt32(dataReader["quantity"]),
                             Product = new Product()
                             {
-                                Id = (int)dataReader["product_id"],
+                                Id = Convert.ToInt32(dataReader["product_id"]),
                                 Name = dataReader["name"].ToString(),
                                 Barcode = dataReader["barcode"].ToString()
                             }

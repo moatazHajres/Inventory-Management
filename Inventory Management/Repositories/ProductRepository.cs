@@ -32,7 +32,7 @@ namespace Inventory_Management.Repositories
                     //Read the data and store them in the product object
                     if (dataReader.Read())
                     {
-                        product.Id = (int)dataReader["id"];
+                        product.Id = Convert.ToInt32(dataReader["id"]);
                         product.Name = dataReader["name"].ToString();
                         product.Barcode = dataReader["barcode"].ToString();
                     }
@@ -80,7 +80,7 @@ namespace Inventory_Management.Repositories
                     while (dataReader.Read())
                     {
                         products.Add(new Product() {
-                            Id = (int) dataReader["id"],
+                            Id = Convert.ToInt32(dataReader["id"]),
                             Name = dataReader["name"].ToString(),
                             Barcode = dataReader["barcode"].ToString()
                         });
@@ -90,7 +90,7 @@ namespace Inventory_Management.Repositories
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    // Console.WriteLine(ex.Message);
                 }
                 finally
                 {
@@ -187,7 +187,7 @@ namespace Inventory_Management.Repositories
 
         public List<Product> Search(string keyword)
         {
-            string query = $"SELECT * FROM {Product.tableName} WHERE name LIKE %{keyword}% OR barcode LIKE %{keyword}%";
+            string query = $"SELECT * FROM {Product.tableName} WHERE name LIKE '%{keyword}%' OR barcode LIKE '%{keyword}%'";
 
             //Create a list to store the result
             List<Product> products = new List<Product>();
@@ -208,7 +208,7 @@ namespace Inventory_Management.Repositories
                     {
                         products.Add(new Product()
                         {
-                            Id = (int)dataReader["id"],
+                            Id = Convert.ToInt32(dataReader["id"]),
                             Name = dataReader["name"].ToString(),
                             Barcode = dataReader["barcode"].ToString()
                         });

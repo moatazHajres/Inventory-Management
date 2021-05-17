@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Inventory_Management.Repositories;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace Inventory_Management
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            new ProductForm().ShowDialog();
         }
 
         private void AddProductBtn_Click(object sender, EventArgs e)

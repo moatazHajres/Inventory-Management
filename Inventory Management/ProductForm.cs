@@ -149,7 +149,7 @@ namespace Inventory_Management
             } 
             else
             {
-                MessageBox.Show("✖ No redults was found");
+                MessageBox.Show("✖ No results was found");
 
                 return;
             }
