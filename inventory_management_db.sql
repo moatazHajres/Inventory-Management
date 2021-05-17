@@ -11,6 +11,7 @@ CREATE TABLE products (
     id int unsigned NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,
     barcode varchar(255) NOT NULL,
+    price double NOT NULL DEFAULT 0,
     
     PRIMARY KEY (id)
 );

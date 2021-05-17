@@ -37,7 +37,8 @@ namespace Inventory_Management.Repositories
                         {
                             Id = Convert.ToInt32(dataReader["product_id"]),
                             Name = dataReader["name"].ToString(),
-                            Barcode = dataReader["barcode"].ToString()
+                            Barcode = dataReader["barcode"].ToString(),
+                            Price = Convert.ToDouble(dataReader["price"])
                         };
                     }
 
@@ -91,7 +92,8 @@ namespace Inventory_Management.Repositories
                             {
                                 Id = Convert.ToInt32(dataReader["product_id"]),
                                 Name = dataReader["name"].ToString(),
-                                Barcode = dataReader["barcode"].ToString()
+                                Barcode = dataReader["barcode"].ToString(),
+                                Price = Convert.ToDouble(dataReader["price"])
                             }
                         });
                     }

@@ -35,6 +35,7 @@ namespace Inventory_Management.Repositories
                         product.Id = Convert.ToInt32(dataReader["id"]);
                         product.Name = dataReader["name"].ToString();
                         product.Barcode = dataReader["barcode"].ToString();
+                        product.Price = Convert.ToDouble(dataReader["price"]);
                     }
 
                     //close Data Reader
@@ -82,8 +83,9 @@ namespace Inventory_Management.Repositories
                         products.Add(new Product() {
                             Id = Convert.ToInt32(dataReader["id"]),
                             Name = dataReader["name"].ToString(),
-                            Barcode = dataReader["barcode"].ToString()
-                        });
+                            Barcode = dataReader["barcode"].ToString(),
+                            Price = Convert.ToDouble(dataReader["price"])
+                    });
                     }
                     //close Data Reader
                     dataReader.Close();
@@ -108,7 +110,7 @@ namespace Inventory_Management.Repositories
 
         public override void Insert(Product product)
         {
-            string query = $"INSERT INTO {Product.tableName} (name, barcode) VALUES(@name, @barcode)";
+            string query = $"INSERT INTO {Product.tableName} (name, barcode, price) VALUES(@name, @barcode, @price)";
 
             //open connection
             if (_dbConnection.OpenConnection() == true)
@@ -117,6 +119,7 @@ namespace Inventory_Management.Repositories
                 MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
                 cmd.Parameters.AddWithValue("@name", product.Name);
                 cmd.Parameters.AddWithValue("@barcode", product.Barcode);
+                cmd.Parameters.AddWithValue("@price", product.Price);
                 
                 try
                 {
@@ -136,7 +139,7 @@ namespace Inventory_Management.Repositories
 
         public override void Update(int id, Product product)
         {
-            string query = $"UPDATE {Product.tableName} SET name=@name, barcode=@barcode WHERE id={id}";
+            string query = $"UPDATE {Product.tableName} SET name=@name, barcode=@barcode, price=@price WHERE id={id}";
 
             //Open connection
             if (_dbConnection.OpenConnection() == true)
@@ -145,7 +148,8 @@ namespace Inventory_Management.Repositories
                 MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
                 cmd.Parameters.AddWithValue("@name", product.Name);
                 cmd.Parameters.AddWithValue("@barcode", product.Barcode);
-                
+                cmd.Parameters.AddWithValue("@price", product.Price);
+
                 try
                 {
                     //Execute query
@@ -210,7 +214,8 @@ namespace Inventory_Management.Repositories
                         {
                             Id = Convert.ToInt32(dataReader["id"]),
                             Name = dataReader["name"].ToString(),
-                            Barcode = dataReader["barcode"].ToString()
+                            Barcode = dataReader["barcode"].ToString(),
+                            Price = Convert.ToDouble(dataReader["price"])
                         });
                     }
 
