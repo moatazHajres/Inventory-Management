@@ -19,10 +19,10 @@ namespace Inventory_Management
         {
             InitializeComponent();
         }
-
         private void Main_Load(object sender, EventArgs e)
         {
-
+            ProductsManageBtn.Enabled = false;
+            UsersManageBtn.Enabled = false;
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -39,5 +39,6 @@ namespace Inventory_Management
         {
             new UserForm().ShowDialog();
         }
+
     }
 }
