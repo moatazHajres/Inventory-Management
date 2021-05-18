@@ -15,18 +15,14 @@ namespace Inventory_Management
 {
     public partial class Main : Form
     {
+        Boolean loggedIn;
         public Main()
         {
             InitializeComponent();
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            /* 
-            ProductsManageBtn.Enabled = false;
-            UsersManageBtn.Enabled = false;
-            SearchBtn.Enabled = false;
-            SearchTxt.Enabled = false;
-            */
+            ChangeToLogoutStatus();
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -46,7 +42,34 @@ namespace Inventory_Management
 
         private void AuthBtn_Click(object sender, EventArgs e)
         {
-            new LoginForm().ShowDialog();
+            if (loggedIn)
+            {
+                ChangeToLogoutStatus();
+            }
+            else
+            {
+                new LoginForm(this).ShowDialog();
+            }
+        }
+
+        public void ChangeToLoginStatus()
+        {
+            ProductsManageBtn.Enabled = true;
+            UsersManageBtn.Enabled = true;
+            SearchBtn.Enabled = true;
+            SearchTxt.Enabled = true;
+            loggedIn = true;
+            AuthBtn.Text = "Logout";
+        }
+
+        public void ChangeToLogoutStatus()
+        {
+            ProductsManageBtn.Enabled = false;
+            UsersManageBtn.Enabled = false;
+            SearchBtn.Enabled = false;
+            SearchTxt.Enabled = false;
+            loggedIn = false;
+            AuthBtn.Text = "Login";
         }
     }
 }

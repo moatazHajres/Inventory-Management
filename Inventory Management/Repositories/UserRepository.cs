@@ -243,7 +243,7 @@ namespace Inventory_Management.Repositories
 
         public List<User> SearchBy(string value, string key = "id", string op = "=")
         {
-            string query = $"SELECT * FROM {User.tableName} WHERE {key}{op}{value}";
+            string query = $"SELECT * FROM {User.tableName} WHERE {key}{op}'{value}'";
 
             //Create a list to store the result
             List<User> users = new List<User>();

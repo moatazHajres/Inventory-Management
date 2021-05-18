@@ -32,7 +32,7 @@ namespace Inventory_Management
             this.components = new System.ComponentModel.Container();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.UserPasswordLbl = new System.Windows.Forms.Label();
-            this.UserEmailLbl = new System.Windows.Forms.Label();
+            this.UserNameLbl = new System.Windows.Forms.Label();
             this.UserPasswordTxt = new System.Windows.Forms.TextBox();
             this.UserNameTxt = new System.Windows.Forms.TextBox();
             this.LoginBtn = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@ namespace Inventory_Management
             this.ClearBtn.TabIndex = 34;
             this.ClearBtn.Text = "Clear";
             this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // UserPasswordLbl
             // 
@@ -64,16 +65,16 @@ namespace Inventory_Management
             this.UserPasswordLbl.TabIndex = 30;
             this.UserPasswordLbl.Text = "Password :";
             // 
-            // UserEmailLbl
+            // UserNameLbl
             // 
-            this.UserEmailLbl.AutoSize = true;
-            this.UserEmailLbl.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserEmailLbl.Location = new System.Drawing.Point(29, 191);
-            this.UserEmailLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.UserEmailLbl.Name = "UserEmailLbl";
-            this.UserEmailLbl.Size = new System.Drawing.Size(59, 19);
-            this.UserEmailLbl.TabIndex = 31;
-            this.UserEmailLbl.Text = "Email :";
+            this.UserNameLbl.AutoSize = true;
+            this.UserNameLbl.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameLbl.Location = new System.Drawing.Point(29, 191);
+            this.UserNameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UserNameLbl.Name = "UserNameLbl";
+            this.UserNameLbl.Size = new System.Drawing.Size(91, 19);
+            this.UserNameLbl.TabIndex = 31;
+            this.UserNameLbl.Text = "Username :";
             // 
             // UserPasswordTxt
             // 
@@ -104,6 +105,7 @@ namespace Inventory_Management
             this.LoginBtn.TabIndex = 33;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = true;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // pictureBox1
             // 
@@ -138,7 +140,7 @@ namespace Inventory_Management
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.UserPasswordLbl);
-            this.Controls.Add(this.UserEmailLbl);
+            this.Controls.Add(this.UserNameLbl);
             this.Controls.Add(this.UserPasswordTxt);
             this.Controls.Add(this.UserNameTxt);
             this.Controls.Add(this.LoginBtn);
@@ -146,6 +148,7 @@ namespace Inventory_Management
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,7 +158,7 @@ namespace Inventory_Management
         #endregion
         internal System.Windows.Forms.Button ClearBtn;
         internal System.Windows.Forms.Label UserPasswordLbl;
-        internal System.Windows.Forms.Label UserEmailLbl;
+        internal System.Windows.Forms.Label UserNameLbl;
         internal System.Windows.Forms.TextBox UserPasswordTxt;
         internal System.Windows.Forms.TextBox UserNameTxt;
         internal System.Windows.Forms.Button LoginBtn;

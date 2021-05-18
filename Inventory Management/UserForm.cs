@@ -38,9 +38,18 @@ namespace Inventory_Management
                 return;
             }
 
+            List<User> results = userRepository.SearchBy(UserNameTxt.Text, "name");
+
+            if (results.Count > 0)
+            {
+                MessageBox.Show("✖ User name already exists, please try diffrent name");
+
+                return;
+            }
+
             userRepository.Insert(new User()
             {
-                Name = UserNameTxt.Text,
+                Name = UserNameTxt.Text.ToLower().Trim(),
                 Email = UserEmailTxt.Text,
                 Password = UserPasswordTxt.Text
             });
@@ -94,9 +103,18 @@ namespace Inventory_Management
         {
             if (selectedUserId > 0)
             {
+                List<User> results = userRepository.SearchBy(UserNameTxt.Text, "name");
+
+                if (results.Count > 0)
+                {
+                    MessageBox.Show("✖ User name already exists, please try diffrent name");
+
+                    return;
+                }
+
                 userRepository.Update(selectedUserId, new User()
                 {
-                    Name = UserNameTxt.Text,
+                    Name = UserNameTxt.Text.ToLower().Trim(),
                     Email = UserEmailTxt.Text,
                     Password = UserPasswordTxt.Text
                 });
