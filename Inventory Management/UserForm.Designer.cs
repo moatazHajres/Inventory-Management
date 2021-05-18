@@ -209,9 +209,9 @@ namespace Inventory_Management
             this.UserPasswordTxt.Margin = new System.Windows.Forms.Padding(2);
             this.UserPasswordTxt.Multiline = true;
             this.UserPasswordTxt.Name = "UserPasswordTxt";
-            this.UserPasswordTxt.PasswordChar = '*';
             this.UserPasswordTxt.Size = new System.Drawing.Size(246, 30);
             this.UserPasswordTxt.TabIndex = 19;
+            this.UserPasswordTxt.UseSystemPasswordChar = true;
             // 
             // UserForm
             // 
