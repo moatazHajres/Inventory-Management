@@ -118,7 +118,7 @@ namespace Inventory_Management
             // DateTimeLbl
             // 
             this.DateTimeLbl.AutoSize = true;
-            this.DateTimeLbl.Location = new System.Drawing.Point(5, 426);
+            this.DateTimeLbl.Location = new System.Drawing.Point(2, 431);
             this.DateTimeLbl.Name = "DateTimeLbl";
             this.DateTimeLbl.Size = new System.Drawing.Size(83, 19);
             this.DateTimeLbl.TabIndex = 36;
@@ -133,7 +133,7 @@ namespace Inventory_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 450);
+            this.ClientSize = new System.Drawing.Size(465, 462);
             this.Controls.Add(this.DateTimeLbl);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ClearBtn);
@@ -142,6 +142,8 @@ namespace Inventory_Management
             this.Controls.Add(this.UserPasswordTxt);
             this.Controls.Add(this.UserNameTxt);
             this.Controls.Add(this.LoginBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

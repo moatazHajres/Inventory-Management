@@ -21,8 +21,12 @@ namespace Inventory_Management
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            /* 
             ProductsManageBtn.Enabled = false;
             UsersManageBtn.Enabled = false;
+            SearchBtn.Enabled = false;
+            SearchTxt.Enabled = false;
+            */
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -40,5 +44,9 @@ namespace Inventory_Management
             new UserForm().ShowDialog();
         }
 
+        private void AuthBtn_Click(object sender, EventArgs e)
+        {
+            new LoginForm().ShowDialog();
+        }
     }
 }
