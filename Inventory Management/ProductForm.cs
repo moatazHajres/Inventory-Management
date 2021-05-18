@@ -27,7 +27,7 @@ namespace Inventory_Management
             EditProductBtn.Enabled = false;
             DeleteProductBtn.Enabled = false;
             productRepository = new ProductRepository();
-            ProductsDgv.DataSource = productRepository.GetAll();
+            ProductsDgv.DataSource = productRepository.All();
         }
 
         private void AddProductBtn_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace Inventory_Management
         public void ReloadProducts()
         {
             ProductsDgv.DataSource = null;
-            ProductsDgv.DataSource = productRepository.GetAll();
+            ProductsDgv.DataSource = productRepository.All();
         }
 
         public void ResetForm()
@@ -148,7 +148,7 @@ namespace Inventory_Management
                 return;
             }
 
-            List<Product> results = productRepository.Search(SearchProductsTxt.Text);
+            List<Product> results = productRepository.SearchAll(SearchProductsTxt.Text);
             
             if (results.Count > 0)
             {

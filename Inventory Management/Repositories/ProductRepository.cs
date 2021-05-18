@@ -11,7 +11,7 @@ namespace Inventory_Management.Repositories
     // Repository pattern
     class ProductRepository : BaseRepository<Product>
     {
-        public override Product GetOne(int id)
+        public override Product Find(int id)
         {
             string query = $"SELECT * FROM {Product.tableName} WHERE id={id}";
 
@@ -60,7 +60,7 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public override List<Product> GetAll()
+        public override List<Product> All()
         {
             string query = $"SELECT * FROM {Product.tableName}";
 
@@ -189,9 +189,61 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public List<Product> Search(string keyword)
+        public List<Product> SearchAll(string keyword)
         {
             string query = $"SELECT * FROM {Product.tableName} WHERE name LIKE '%{keyword}%' OR barcode LIKE '%{keyword}%'";
+
+            //Create a list to store the result
+            List<Product> products = new List<Product>();
+
+            //Open connection
+            if (_dbConnection.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
+
+                try
+                {
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the list
+                    while (dataReader.Read())
+                    {
+                        products.Add(new Product()
+                        {
+                            Id = Convert.ToInt32(dataReader["id"]),
+                            Name = dataReader["name"].ToString(),
+                            Barcode = dataReader["barcode"].ToString(),
+                            Price = Convert.ToDouble(dataReader["price"])
+                        });
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    //close Connection
+                    _dbConnection.CloseConnection();
+                }
+
+                //return list to be displayed
+                return products;
+            }
+            else
+            {
+                return products;
+            }
+        }
+
+        public List<Product> SearchBy(string value, string key = "id", string op = "=")
+        {
+            string query = $"SELECT * FROM {Product.tableName} WHERE {key} {op} {value}";
 
             //Create a list to store the result
             List<Product> products = new List<Product>();

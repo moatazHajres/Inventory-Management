@@ -57,7 +57,7 @@ namespace Inventory_Management
             this.ProductsDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ProductsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProductsDgv.Location = new System.Drawing.Point(258, 60);
-            this.ProductsDgv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProductsDgv.Margin = new System.Windows.Forms.Padding(2);
             this.ProductsDgv.Name = "ProductsDgv";
             this.ProductsDgv.RowHeadersWidth = 62;
             this.ProductsDgv.RowTemplate.Height = 29;
@@ -69,7 +69,7 @@ namespace Inventory_Management
             // ProductNameTxt
             // 
             this.ProductNameTxt.Location = new System.Drawing.Point(8, 27);
-            this.ProductNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProductNameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.ProductNameTxt.Multiline = true;
             this.ProductNameTxt.Name = "ProductNameTxt";
             this.ProductNameTxt.Size = new System.Drawing.Size(246, 30);
@@ -78,7 +78,7 @@ namespace Inventory_Management
             // ProductBarcodeTxt
             // 
             this.ProductBarcodeTxt.Location = new System.Drawing.Point(8, 75);
-            this.ProductBarcodeTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProductBarcodeTxt.Margin = new System.Windows.Forms.Padding(2);
             this.ProductBarcodeTxt.Multiline = true;
             this.ProductBarcodeTxt.Name = "ProductBarcodeTxt";
             this.ProductBarcodeTxt.Size = new System.Drawing.Size(246, 30);
@@ -87,7 +87,7 @@ namespace Inventory_Management
             // AddProductBtn
             // 
             this.AddProductBtn.Location = new System.Drawing.Point(8, 155);
-            this.AddProductBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddProductBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddProductBtn.Name = "AddProductBtn";
             this.AddProductBtn.Size = new System.Drawing.Size(246, 29);
             this.AddProductBtn.TabIndex = 4;
@@ -101,9 +101,9 @@ namespace Inventory_Management
             this.ProductNameLbl.Location = new System.Drawing.Point(5, 12);
             this.ProductNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ProductNameLbl.Name = "ProductNameLbl";
-            this.ProductNameLbl.Size = new System.Drawing.Size(35, 13);
+            this.ProductNameLbl.Size = new System.Drawing.Size(39, 13);
             this.ProductNameLbl.TabIndex = 4;
-            this.ProductNameLbl.Text = "Name";
+            this.ProductNameLbl.Text = "*Name";
             // 
             // ProductBarcodeLbl
             // 
@@ -111,16 +111,16 @@ namespace Inventory_Management
             this.ProductBarcodeLbl.Location = new System.Drawing.Point(5, 60);
             this.ProductBarcodeLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ProductBarcodeLbl.Name = "ProductBarcodeLbl";
-            this.ProductBarcodeLbl.Size = new System.Drawing.Size(47, 13);
+            this.ProductBarcodeLbl.Size = new System.Drawing.Size(51, 13);
             this.ProductBarcodeLbl.TabIndex = 5;
-            this.ProductBarcodeLbl.Text = "Barcode";
+            this.ProductBarcodeLbl.Text = "*Barcode";
             // 
             // SearchProductsTxt
             // 
             this.SearchProductsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchProductsTxt.Location = new System.Drawing.Point(258, 27);
-            this.SearchProductsTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchProductsTxt.Margin = new System.Windows.Forms.Padding(2);
             this.SearchProductsTxt.Multiline = true;
             this.SearchProductsTxt.Name = "SearchProductsTxt";
             this.SearchProductsTxt.Size = new System.Drawing.Size(276, 30);
@@ -131,7 +131,7 @@ namespace Inventory_Management
             // 
             this.ReloadProductsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ReloadProductsBtn.Location = new System.Drawing.Point(642, 27);
-            this.ReloadProductsBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReloadProductsBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ReloadProductsBtn.Name = "ReloadProductsBtn";
             this.ReloadProductsBtn.Size = new System.Drawing.Size(100, 30);
             this.ReloadProductsBtn.TabIndex = 10;
@@ -143,7 +143,7 @@ namespace Inventory_Management
             // 
             this.SearchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchBtn.Location = new System.Drawing.Point(538, 27);
-            this.SearchBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(100, 30);
             this.SearchBtn.TabIndex = 9;
@@ -164,7 +164,7 @@ namespace Inventory_Management
             // EditProductBtn
             // 
             this.EditProductBtn.Location = new System.Drawing.Point(8, 188);
-            this.EditProductBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditProductBtn.Margin = new System.Windows.Forms.Padding(2);
             this.EditProductBtn.Name = "EditProductBtn";
             this.EditProductBtn.Size = new System.Drawing.Size(246, 29);
             this.EditProductBtn.TabIndex = 5;
@@ -175,7 +175,7 @@ namespace Inventory_Management
             // DeleteProductBtn
             // 
             this.DeleteProductBtn.Location = new System.Drawing.Point(8, 221);
-            this.DeleteProductBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteProductBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteProductBtn.Name = "DeleteProductBtn";
             this.DeleteProductBtn.Size = new System.Drawing.Size(246, 29);
             this.DeleteProductBtn.TabIndex = 6;
@@ -189,14 +189,14 @@ namespace Inventory_Management
             this.ProductPriceLbl.Location = new System.Drawing.Point(5, 107);
             this.ProductPriceLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ProductPriceLbl.Name = "ProductPriceLbl";
-            this.ProductPriceLbl.Size = new System.Drawing.Size(31, 13);
+            this.ProductPriceLbl.Size = new System.Drawing.Size(35, 13);
             this.ProductPriceLbl.TabIndex = 13;
-            this.ProductPriceLbl.Text = "Price";
+            this.ProductPriceLbl.Text = "*Price";
             // 
             // ResetFieldsBtn
             // 
             this.ResetFieldsBtn.Location = new System.Drawing.Point(8, 254);
-            this.ResetFieldsBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ResetFieldsBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ResetFieldsBtn.Name = "ResetFieldsBtn";
             this.ResetFieldsBtn.Size = new System.Drawing.Size(246, 29);
             this.ResetFieldsBtn.TabIndex = 7;
@@ -212,7 +212,7 @@ namespace Inventory_Management
             0,
             131072});
             this.ProductPriceInput.Location = new System.Drawing.Point(8, 122);
-            this.ProductPriceInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProductPriceInput.Margin = new System.Windows.Forms.Padding(2);
             this.ProductPriceInput.Name = "ProductPriceInput";
             this.ProductPriceInput.Size = new System.Drawing.Size(245, 20);
             this.ProductPriceInput.TabIndex = 3;
@@ -237,7 +237,7 @@ namespace Inventory_Management
             this.Controls.Add(this.ProductBarcodeTxt);
             this.Controls.Add(this.ProductNameTxt);
             this.Controls.Add(this.ProductsDgv);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductForm";
             this.Text = "Product Form";
             this.Load += new System.EventHandler(this.ProductForm_Load);

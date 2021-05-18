@@ -26,7 +26,7 @@ namespace Inventory_Management
             EditUserBtn.Enabled = false;
             DeleteUserBtn.Enabled = false;
             userRepository = new UserRepository();
-            UsersDgv.DataSource = userRepository.GetAll();
+            UsersDgv.DataSource = userRepository.All();
         }
 
         private void AddUserBtn_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace Inventory_Management
         public void ReloadUsers()
         {
             UsersDgv.DataSource = null;
-            UsersDgv.DataSource = userRepository.GetAll();
+            UsersDgv.DataSource = userRepository.All();
         }
 
         public void ResetForm()
@@ -143,7 +143,7 @@ namespace Inventory_Management
                 return;
             }
 
-            List<User> results = userRepository.Search(SearchUsersTxt.Text);
+            List<User> results = userRepository.SearchAll(SearchUsersTxt.Text);
 
             if (results.Count > 0)
             {

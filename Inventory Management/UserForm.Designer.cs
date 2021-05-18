@@ -132,9 +132,9 @@ namespace Inventory_Management
             this.UserEmailLbl.Location = new System.Drawing.Point(3, 60);
             this.UserEmailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UserEmailLbl.Name = "UserEmailLbl";
-            this.UserEmailLbl.Size = new System.Drawing.Size(32, 13);
+            this.UserEmailLbl.Size = new System.Drawing.Size(36, 13);
             this.UserEmailLbl.TabIndex = 21;
-            this.UserEmailLbl.Text = "Email";
+            this.UserEmailLbl.Text = "*Email";
             // 
             // UserNameLbl
             // 
@@ -142,9 +142,9 @@ namespace Inventory_Management
             this.UserNameLbl.Location = new System.Drawing.Point(3, 12);
             this.UserNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UserNameLbl.Name = "UserNameLbl";
-            this.UserNameLbl.Size = new System.Drawing.Size(35, 13);
+            this.UserNameLbl.Size = new System.Drawing.Size(39, 13);
             this.UserNameLbl.TabIndex = 20;
-            this.UserNameLbl.Text = "Name";
+            this.UserNameLbl.Text = "*Name";
             // 
             // AddUserBtn
             // 
@@ -199,9 +199,9 @@ namespace Inventory_Management
             this.UserPasswordLbl.Location = new System.Drawing.Point(3, 107);
             this.UserPasswordLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UserPasswordLbl.Name = "UserPasswordLbl";
-            this.UserPasswordLbl.Size = new System.Drawing.Size(53, 13);
+            this.UserPasswordLbl.Size = new System.Drawing.Size(57, 13);
             this.UserPasswordLbl.TabIndex = 31;
-            this.UserPasswordLbl.Text = "Password";
+            this.UserPasswordLbl.Text = "*Password";
             // 
             // UserPasswordTxt
             // 

@@ -18,9 +18,9 @@ namespace Inventory_Management.Repositories
             _dbConnection = DBConnection.Instance();
         }
 
-        public abstract EntityType GetOne(int id);
+        public abstract EntityType Find(int id);
 
-        public abstract List<EntityType> GetAll();
+        public abstract List<EntityType> All();
 
         public abstract void Insert(EntityType entity);
 
@@ -28,6 +28,8 @@ namespace Inventory_Management.Repositories
 
         public abstract void Delete(int id);
 
-        // public abstract List<EntityType> Search(string keyword);
+        // public abstract List<EntityType> SearchAll(string keyword);
+
+        // public abstract List<EntityType> SearchBy(string value, string key = "id");
     }
 }

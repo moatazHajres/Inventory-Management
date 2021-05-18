@@ -1,6 +1,6 @@
 CREATE TABLE users (
     id int unsigned NOT NULL AUTO_INCREMENT,
-    name varchar(255) NOT NULL,
+    name varchar(255) NOT NULL UNIQUE,
     email varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
 

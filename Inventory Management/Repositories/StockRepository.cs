@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Inventory_Management.Repositories
 {
+    // Repository pattern
     class StockRepository : BaseRepository<Stock>
     {
-        public override Stock GetOne(int id)
+        public override Stock Find(int id)
         {
-            /* ! TODO: ! */
             string query = $"SELECT * FROM {Stock.tableName} WHERE id={id}";
 
             //Create a stock object to store the result
@@ -63,9 +63,8 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public override List<Stock> GetAll()
+        public override List<Stock> All()
         {
-            /* ! TODO: ! */
             string query = $"SELECT `stock`.`id`, SUM(`quantity`) AS `quantity`, `stock`.`product_id`, `products`.`name`, `products`.`barcode`, `products`.`price` " +
                 $"FROM {Stock.tableName} " +
                 $"INNER JOIN `products`" +

@@ -11,7 +11,7 @@ namespace Inventory_Management.Repositories
     // Repository pattern
     class UserRepository : BaseRepository<User>
     {
-        public override User GetOne(int id)
+        public override User Find(int id)
         {
             string query = $"SELECT * FROM {User.tableName} WHERE id={id}";
 
@@ -60,7 +60,7 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public override List<User> GetAll()
+        public override List<User> All()
         {
             string query = $"SELECT * FROM {User.tableName}";
 
@@ -189,9 +189,61 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public List<User> Search(string keyword)
+        public List<User> SearchAll(string keyword)
         {
             string query = $"SELECT * FROM {User.tableName} WHERE name LIKE '%{keyword}%' OR email LIKE '%{keyword}%'";
+
+            //Create a list to store the result
+            List<User> users = new List<User>();
+
+            //Open connection
+            if (_dbConnection.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
+
+                try
+                {
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the list
+                    while (dataReader.Read())
+                    {
+                        users.Add(new User()
+                        {
+                            Id = Convert.ToInt32(dataReader["id"]),
+                            Name = dataReader["name"].ToString(),
+                            Email = dataReader["email"].ToString(),
+                            Password = dataReader["password"].ToString()
+                        });
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    //close Connection
+                    _dbConnection.CloseConnection();
+                }
+
+                //return list to be displayed
+                return users;
+            }
+            else
+            {
+                return users;
+            }
+        }
+
+        public List<User> SearchBy(string value, string key = "id", string op = "=")
+        {
+            string query = $"SELECT * FROM {User.tableName} WHERE {key}{op}{value}";
 
             //Create a list to store the result
             List<User> users = new List<User>();
