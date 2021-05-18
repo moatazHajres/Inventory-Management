@@ -43,18 +43,20 @@ namespace Inventory_Management
             this.StockDgv.AllowUserToAddRows = false;
             this.StockDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.StockDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.StockDgv.Location = new System.Drawing.Point(12, 115);
+            this.StockDgv.Location = new System.Drawing.Point(8, 79);
+            this.StockDgv.Margin = new System.Windows.Forms.Padding(2);
             this.StockDgv.Name = "StockDgv";
             this.StockDgv.RowHeadersWidth = 62;
             this.StockDgv.RowTemplate.Height = 29;
-            this.StockDgv.Size = new System.Drawing.Size(1176, 531);
+            this.StockDgv.Size = new System.Drawing.Size(784, 363);
             this.StockDgv.TabIndex = 0;
             // 
             // ProductsManageBtn
             // 
-            this.ProductsManageBtn.Location = new System.Drawing.Point(12, 12);
+            this.ProductsManageBtn.Location = new System.Drawing.Point(8, 8);
+            this.ProductsManageBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ProductsManageBtn.Name = "ProductsManageBtn";
-            this.ProductsManageBtn.Size = new System.Drawing.Size(195, 45);
+            this.ProductsManageBtn.Size = new System.Drawing.Size(130, 31);
             this.ProductsManageBtn.TabIndex = 1;
             this.ProductsManageBtn.Text = "Products Management";
             this.ProductsManageBtn.UseVisualStyleBackColor = true;
@@ -62,9 +64,10 @@ namespace Inventory_Management
             // 
             // UsersManageBtn
             // 
-            this.UsersManageBtn.Location = new System.Drawing.Point(213, 12);
+            this.UsersManageBtn.Location = new System.Drawing.Point(142, 8);
+            this.UsersManageBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UsersManageBtn.Name = "UsersManageBtn";
-            this.UsersManageBtn.Size = new System.Drawing.Size(173, 45);
+            this.UsersManageBtn.Size = new System.Drawing.Size(115, 31);
             this.UsersManageBtn.TabIndex = 2;
             this.UsersManageBtn.Text = "Users Management";
             this.UsersManageBtn.UseVisualStyleBackColor = true;
@@ -72,26 +75,29 @@ namespace Inventory_Management
             // 
             // SearchTxt
             // 
-            this.SearchTxt.Location = new System.Drawing.Point(12, 75);
+            this.SearchTxt.Location = new System.Drawing.Point(8, 51);
+            this.SearchTxt.Margin = new System.Windows.Forms.Padding(2);
             this.SearchTxt.Multiline = true;
             this.SearchTxt.Name = "SearchTxt";
-            this.SearchTxt.Size = new System.Drawing.Size(1009, 35);
+            this.SearchTxt.Size = new System.Drawing.Size(674, 25);
             this.SearchTxt.TabIndex = 3;
             // 
             // AuthBtn
             // 
-            this.AuthBtn.Location = new System.Drawing.Point(1062, 12);
+            this.AuthBtn.Location = new System.Drawing.Point(708, 8);
+            this.AuthBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AuthBtn.Name = "AuthBtn";
-            this.AuthBtn.Size = new System.Drawing.Size(126, 45);
+            this.AuthBtn.Size = new System.Drawing.Size(84, 31);
             this.AuthBtn.TabIndex = 5;
             this.AuthBtn.Text = "Login";
             this.AuthBtn.UseVisualStyleBackColor = true;
             // 
             // SearchBtn
             // 
-            this.SearchBtn.Location = new System.Drawing.Point(1028, 75);
+            this.SearchBtn.Location = new System.Drawing.Point(685, 51);
+            this.SearchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(160, 35);
+            this.SearchBtn.Size = new System.Drawing.Size(107, 24);
             this.SearchBtn.TabIndex = 6;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
@@ -99,19 +105,18 @@ namespace Inventory_Management
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 658);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.AuthBtn);
             this.Controls.Add(this.SearchTxt);
             this.Controls.Add(this.UsersManageBtn);
             this.Controls.Add(this.ProductsManageBtn);
             this.Controls.Add(this.StockDgv);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.StockDgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

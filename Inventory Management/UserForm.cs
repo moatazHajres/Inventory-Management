@@ -45,10 +45,10 @@ namespace Inventory_Management
                 Password = UserPasswordTxt.Text
             });
 
-            MessageBox.Show("✔ User Added Successfully");
-
             ResetForm();
             ReloadUsers();
+
+            MessageBox.Show("✔ User Added Successfully");
         }
 
         private void ReloadUserssBtn_Click(object sender, EventArgs e)

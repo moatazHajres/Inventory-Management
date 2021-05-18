@@ -34,7 +34,7 @@ namespace Inventory_Management
         {
             if (String.IsNullOrWhiteSpace(ProductNameTxt.Text) || String.IsNullOrWhiteSpace(ProductBarcodeTxt.Text))
             {
-                MessageBox.Show("✖ Please make sure to fill both fields");
+                MessageBox.Show("✖ Please make sure to fill all fields");
                 
                 return;
             }
@@ -45,10 +45,10 @@ namespace Inventory_Management
                 Price = (Double)ProductPriceInput.Value
             });
 
-            MessageBox.Show("✔ Product Added Successfully");
-
             ResetForm();
             ReloadProducts();
+
+            MessageBox.Show("✔ Product Added Successfully");
 
         }
 
