@@ -15,5 +15,10 @@ namespace Inventory_Management.Entities
         public string Barcode { get; set; }
 
         public double Price { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

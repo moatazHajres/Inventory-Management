@@ -74,5 +74,12 @@ namespace Inventory_Management
             this.Close();
         }
 
+        private void UserPasswordTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginBtn_Click(this, new EventArgs());
+            }
+        }
     }
 }

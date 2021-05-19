@@ -49,7 +49,6 @@ namespace Inventory_Management
             ReloadProducts();
 
             MessageBox.Show("✔ Product Added Successfully");
-
         }
 
         private void ReloadProductsBtn_Click(object sender, EventArgs e)

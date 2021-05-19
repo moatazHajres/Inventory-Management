@@ -51,11 +51,21 @@ namespace Inventory_Management
                 new LoginForm(this).ShowDialog();
             }
         }
+        private void StockInBtn_Click(object sender, EventArgs e)
+        {
+            new StockInForm().ShowDialog();
+        }
+        private void StockOutBtn_Click(object sender, EventArgs e)
+        {
+            new StockOutForm().ShowDialog();
+        }
 
         public void ChangeToLoginStatus()
         {
             ProductsManageBtn.Enabled = true;
             UsersManageBtn.Enabled = true;
+            StockInBtn.Enabled = true;
+            StockOutBtn.Enabled = true;
             SearchBtn.Enabled = true;
             SearchTxt.Enabled = true;
             loggedIn = true;
@@ -66,10 +76,13 @@ namespace Inventory_Management
         {
             ProductsManageBtn.Enabled = false;
             UsersManageBtn.Enabled = false;
+            StockInBtn.Enabled = false;
+            StockOutBtn.Enabled = false;
             SearchBtn.Enabled = false;
             SearchTxt.Enabled = false;
             loggedIn = false;
             AuthBtn.Text = "Login";
         }
+
     }
 }

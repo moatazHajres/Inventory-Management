@@ -35,12 +35,17 @@ namespace Inventory_Management
             this.SearchTxt = new System.Windows.Forms.TextBox();
             this.AuthBtn = new System.Windows.Forms.Button();
             this.SearchBtn = new System.Windows.Forms.Button();
+            this.StockInBtn = new System.Windows.Forms.Button();
+            this.StockOutBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StockDgv)).BeginInit();
             this.SuspendLayout();
             // 
             // StockDgv
             // 
             this.StockDgv.AllowUserToAddRows = false;
+            this.StockDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.StockDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.StockDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.StockDgv.Location = new System.Drawing.Point(12, 115);
@@ -52,7 +57,7 @@ namespace Inventory_Management
             // 
             // ProductsManageBtn
             // 
-            this.ProductsManageBtn.Location = new System.Drawing.Point(12, 12);
+            this.ProductsManageBtn.Location = new System.Drawing.Point(368, 12);
             this.ProductsManageBtn.Name = "ProductsManageBtn";
             this.ProductsManageBtn.Size = new System.Drawing.Size(195, 45);
             this.ProductsManageBtn.TabIndex = 1;
@@ -62,7 +67,7 @@ namespace Inventory_Management
             // 
             // UsersManageBtn
             // 
-            this.UsersManageBtn.Location = new System.Drawing.Point(213, 12);
+            this.UsersManageBtn.Location = new System.Drawing.Point(569, 12);
             this.UsersManageBtn.Name = "UsersManageBtn";
             this.UsersManageBtn.Size = new System.Drawing.Size(172, 45);
             this.UsersManageBtn.TabIndex = 2;
@@ -72,6 +77,8 @@ namespace Inventory_Management
             // 
             // SearchTxt
             // 
+            this.SearchTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchTxt.Location = new System.Drawing.Point(12, 75);
             this.SearchTxt.Multiline = true;
             this.SearchTxt.Name = "SearchTxt";
@@ -80,6 +87,7 @@ namespace Inventory_Management
             // 
             // AuthBtn
             // 
+            this.AuthBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AuthBtn.Location = new System.Drawing.Point(1062, 12);
             this.AuthBtn.Name = "AuthBtn";
             this.AuthBtn.Size = new System.Drawing.Size(126, 45);
@@ -90,6 +98,7 @@ namespace Inventory_Management
             // 
             // SearchBtn
             // 
+            this.SearchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchBtn.Location = new System.Drawing.Point(1028, 75);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(160, 35);
@@ -98,18 +107,40 @@ namespace Inventory_Management
             this.SearchBtn.UseVisualStyleBackColor = true;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
+            // StockInBtn
+            // 
+            this.StockInBtn.Location = new System.Drawing.Point(12, 12);
+            this.StockInBtn.Name = "StockInBtn";
+            this.StockInBtn.Size = new System.Drawing.Size(172, 45);
+            this.StockInBtn.TabIndex = 7;
+            this.StockInBtn.Text = "Stock In";
+            this.StockInBtn.UseVisualStyleBackColor = true;
+            this.StockInBtn.Click += new System.EventHandler(this.StockInBtn_Click);
+            // 
+            // StockOutBtn
+            // 
+            this.StockOutBtn.Location = new System.Drawing.Point(190, 12);
+            this.StockOutBtn.Name = "StockOutBtn";
+            this.StockOutBtn.Size = new System.Drawing.Size(172, 45);
+            this.StockOutBtn.TabIndex = 8;
+            this.StockOutBtn.Text = "Stock out";
+            this.StockOutBtn.UseVisualStyleBackColor = true;
+            this.StockOutBtn.Click += new System.EventHandler(this.StockOutBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 658);
+            this.Controls.Add(this.StockOutBtn);
+            this.Controls.Add(this.StockInBtn);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.AuthBtn);
             this.Controls.Add(this.SearchTxt);
             this.Controls.Add(this.UsersManageBtn);
             this.Controls.Add(this.ProductsManageBtn);
             this.Controls.Add(this.StockDgv);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -127,6 +158,8 @@ namespace Inventory_Management
         private System.Windows.Forms.TextBox SearchTxt;
         private System.Windows.Forms.Button AuthBtn;
         private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.Button StockInBtn;
+        private System.Windows.Forms.Button StockOutBtn;
     }
 }
 

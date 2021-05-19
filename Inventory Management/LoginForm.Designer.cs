@@ -36,9 +36,9 @@ namespace Inventory_Management
             this.UserPasswordTxt = new System.Windows.Forms.TextBox();
             this.UserNameTxt = new System.Windows.Forms.TextBox();
             this.LoginBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DateTimeLbl = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +85,7 @@ namespace Inventory_Management
             this.UserPasswordTxt.Size = new System.Drawing.Size(394, 30);
             this.UserPasswordTxt.TabIndex = 32;
             this.UserPasswordTxt.UseSystemPasswordChar = true;
+            this.UserPasswordTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserPasswordTxt_KeyDown);
             // 
             // UserNameTxt
             // 
@@ -107,16 +108,6 @@ namespace Inventory_Management
             this.LoginBtn.UseVisualStyleBackColor = true;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Inventory_Management.Properties.Resources.login_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(131, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 169);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
-            // 
             // DateTimeLbl
             // 
             this.DateTimeLbl.AutoSize = true;
@@ -130,6 +121,16 @@ namespace Inventory_Management
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Inventory_Management.Properties.Resources.login_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(131, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(198, 169);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
