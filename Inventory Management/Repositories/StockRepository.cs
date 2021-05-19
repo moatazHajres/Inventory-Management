@@ -201,7 +201,7 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public override List<Product> SearchBy(string value, string key = "id", string op = "=")
+        public override List<Stock> SearchBy(string value, string key = "id", string op = "=")
         {
             string query = $"SELECT `stock`.`id`, `quantity`, `stock`.`product_id`, `products`.`name`, `products`.`barcode`, `products`.`price` " +
                 $"FROM {Stock.tableName} " +
