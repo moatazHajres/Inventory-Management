@@ -28,8 +28,8 @@ namespace Inventory_Management.Repositories
 
         public abstract void Delete(int id);
 
-        // public abstract List<EntityType> SearchAll(string keyword);
+        public abstract List<EntityType> SearchBy(string value, string key, string op);
 
-        // public abstract List<EntityType> SearchBy(string value, string key = "id");
+        // public abstract List<EntityType> SearchAll(string keyword);
     }
 }

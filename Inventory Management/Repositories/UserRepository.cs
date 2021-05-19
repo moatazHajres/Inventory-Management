@@ -241,7 +241,7 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public List<User> SearchBy(string value, string key = "id", string op = "=")
+        public override List<User> SearchBy(string value, string key = "id", string op = "=")
         {
             string query = $"SELECT * FROM {User.tableName} WHERE {key}{op}'{value}'";
 

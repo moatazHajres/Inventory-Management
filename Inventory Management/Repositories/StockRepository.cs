@@ -200,5 +200,65 @@ namespace Inventory_Management.Repositories
                 }
             }
         }
+
+        public override List<Product> SearchBy(string value, string key = "id", string op = "=")
+        {
+            string query = $"SELECT `stock`.`id`, `quantity`, `stock`.`product_id`, `products`.`name`, `products`.`barcode`, `products`.`price` " +
+                $"FROM {Stock.tableName} " +
+                $"INNER JOIN `products` " +
+                $"ON `stock`.`product_id` = `products`.`id` " +
+                $"WHERE {key}{op}'{value}'";
+
+            //Create a list to store the result
+            List<Stock> stocks = new List<Stock>();
+
+            //Open connection
+            if (_dbConnection.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, _dbConnection.Connection);
+                try
+                {
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the list
+                    while (dataReader.Read())
+                    {
+                        stocks.Add(new Stock()
+                        {
+                            Id = Convert.ToInt32(dataReader["id"]),
+                            Quantity = Convert.ToInt32(dataReader["quantity"]),
+                            Product = new Product()
+                            {
+                                Id = Convert.ToInt32(dataReader["product_id"]),
+                                Name = dataReader["name"].ToString(),
+                                Barcode = dataReader["barcode"].ToString(),
+                                Price = Convert.ToDouble(dataReader["price"])
+                            }
+                        });
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    //close connection
+                    _dbConnection.CloseConnection();
+                }
+
+                //return list to be displayed
+                return stocks;
+            }
+            else
+            {
+                return stocks;
+            }
+        }
     }
 }

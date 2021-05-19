@@ -241,9 +241,9 @@ namespace Inventory_Management.Repositories
             }
         }
 
-        public List<Product> SearchBy(string value, string key = "id", string op = "=")
+        public override List<Product> SearchBy(string value, string key = "id", string op = "=")
         {
-            string query = $"SELECT * FROM {Product.tableName} WHERE {key} {op} {value}";
+            string query = $"SELECT * FROM {Product.tableName} WHERE {key}{op}'{value}'";
 
             //Create a list to store the result
             List<Product> products = new List<Product>();
