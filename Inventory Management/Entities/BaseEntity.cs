@@ -8,5 +8,8 @@ namespace Inventory_Management.Entities
 {
     class BaseEntity
     {
+        public static string tableName;
+
+        public int Id { get; set; }
     }
 }

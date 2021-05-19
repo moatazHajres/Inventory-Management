@@ -11,8 +11,6 @@ namespace Inventory_Management.Entities
     {
         public static string tableName = "stock";
 
-        public int Id { get; set; }
-
         public int Quantity { get; set; }
 
         public Product Product { get; set; }
