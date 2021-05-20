@@ -16,10 +16,12 @@ namespace Inventory_Management
     {
         ProductRepository productRepository;
         private int selectedProductId = -1;
+        private Main mainForm;
 
-        public ProductForm()
+        public ProductForm(Main parent)
         {
             InitializeComponent();
+            mainForm = parent;
         }
 
         private void ProductForm_Load(object sender, EventArgs e)
@@ -173,6 +175,11 @@ namespace Inventory_Management
         private void ResetFieldsBtn_Click(object sender, EventArgs e)
         {
             ResetForm();
+        }
+
+        private void ProductForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainForm.LoadStocks();
         }
     }
 }

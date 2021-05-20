@@ -37,6 +37,7 @@ namespace Inventory_Management
             this.SearchBtn = new System.Windows.Forms.Button();
             this.StockInBtn = new System.Windows.Forms.Button();
             this.StockOutBtn = new System.Windows.Forms.Button();
+            this.ReloadStocksBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StockDgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@ namespace Inventory_Management
             this.SearchTxt.Location = new System.Drawing.Point(12, 75);
             this.SearchTxt.Multiline = true;
             this.SearchTxt.Name = "SearchTxt";
-            this.SearchTxt.Size = new System.Drawing.Size(1009, 35);
+            this.SearchTxt.Size = new System.Drawing.Size(931, 35);
             this.SearchTxt.TabIndex = 3;
             // 
             // AuthBtn
@@ -99,9 +100,9 @@ namespace Inventory_Management
             // SearchBtn
             // 
             this.SearchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchBtn.Location = new System.Drawing.Point(1028, 75);
+            this.SearchBtn.Location = new System.Drawing.Point(949, 75);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(160, 35);
+            this.SearchBtn.Size = new System.Drawing.Size(118, 35);
             this.SearchBtn.TabIndex = 6;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
@@ -127,11 +128,23 @@ namespace Inventory_Management
             this.StockOutBtn.UseVisualStyleBackColor = true;
             this.StockOutBtn.Click += new System.EventHandler(this.StockOutBtn_Click);
             // 
+            // ReloadStocksBtn
+            // 
+            this.ReloadStocksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReloadStocksBtn.Location = new System.Drawing.Point(1070, 75);
+            this.ReloadStocksBtn.Name = "ReloadStocksBtn";
+            this.ReloadStocksBtn.Size = new System.Drawing.Size(118, 35);
+            this.ReloadStocksBtn.TabIndex = 9;
+            this.ReloadStocksBtn.Text = "Reload";
+            this.ReloadStocksBtn.UseVisualStyleBackColor = true;
+            this.ReloadStocksBtn.Click += new System.EventHandler(this.ReloadStocksBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 658);
+            this.Controls.Add(this.ReloadStocksBtn);
             this.Controls.Add(this.StockOutBtn);
             this.Controls.Add(this.StockInBtn);
             this.Controls.Add(this.SearchBtn);
@@ -160,6 +173,7 @@ namespace Inventory_Management
         private System.Windows.Forms.Button SearchBtn;
         private System.Windows.Forms.Button StockInBtn;
         private System.Windows.Forms.Button StockOutBtn;
+        private System.Windows.Forms.Button ReloadStocksBtn;
     }
 }
 

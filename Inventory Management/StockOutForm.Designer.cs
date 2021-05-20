@@ -122,6 +122,7 @@ namespace Inventory_Management
             this.Controls.Add(this.ExportsDgv);
             this.Name = "StockOutForm";
             this.Text = "StockOutForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StockOutForm_FormClosed);
             this.Load += new System.EventHandler(this.StockOutForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.QuantityInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExportsDgv)).EndInit();

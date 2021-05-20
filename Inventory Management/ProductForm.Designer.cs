@@ -224,6 +224,7 @@ namespace Inventory_Management
             this.Controls.Add(this.ProductsDgv);
             this.Name = "ProductForm";
             this.Text = "Product Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductForm_FormClosed);
             this.Load += new System.EventHandler(this.ProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductPriceInput)).EndInit();

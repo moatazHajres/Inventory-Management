@@ -16,9 +16,12 @@ namespace Inventory_Management
     {
         StockRepository stockRepository;
         ProductRepository productRepository;
-        public StockOutForm()
+        private Main mainForm;
+
+        public StockOutForm(Main parent)
         {
             InitializeComponent();
+            mainForm = parent;
         }
 
         private void StockOutForm_Load(object sender, EventArgs e)
@@ -72,6 +75,11 @@ namespace Inventory_Management
             ExportsDgv.DataSource = null;
             ExportsDgv.DataSource = stockRepository.SearchBy("0", "quantity", "<");
             ExportsDgv.Columns["Id"].Visible = false;
+        }
+
+        private void StockOutForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainForm.LoadStocks();
         }
     }
 }

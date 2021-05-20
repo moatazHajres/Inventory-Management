@@ -16,9 +16,12 @@ namespace Inventory_Management
     {
         StockRepository stockRepository;
         ProductRepository productRepository;
-        public StockInForm()
+        private Main mainForm;
+
+        public StockInForm(Main parent)
         {
             InitializeComponent();
+            mainForm = parent;
         }
         private void StockInForm_Load(object sender, EventArgs e)
         {
@@ -62,6 +65,11 @@ namespace Inventory_Management
             ImportsDgv.DataSource = null;
             ImportsDgv.DataSource = stockRepository.SearchBy("0", "quantity", ">");
             ImportsDgv.Columns["Id"].Visible = false;
+        }
+
+        private void StockInForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainForm.LoadStocks();
         }
     }
 }

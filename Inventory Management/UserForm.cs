@@ -69,6 +69,7 @@ namespace Inventory_Management
         {
             UsersDgv.DataSource = null;
             UsersDgv.DataSource = userRepository.All();
+            UsersDgv.Columns["Password"].Visible = false;
         }
 
         public void ResetForm()

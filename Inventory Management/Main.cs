@@ -10,11 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inventory_Management.Entities;
 
 namespace Inventory_Management
 {
     public partial class Main : Form
     {
+        StockRepository stockRepository = new StockRepository();
         Boolean loggedIn;
         public Main()
         {
@@ -27,12 +29,41 @@ namespace Inventory_Management
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(SearchTxt.Text))
+            {
+                MessageBox.Show("✖ Please check your input");
 
+                return;
+            }
+
+            List<Stock> stocks = stockRepository.All();
+            var stocksList = (from stock in stocks
+                              where stock.Product.Name == SearchTxt.Text || stock.Product.Barcode == SearchTxt.Text
+                              select new
+                              {
+                                  Product = stock.Product.Name,
+                                  Barcode = stock.Product.Barcode,
+                                  Price = stock.Product.Price,
+                                  Quantity = stock.Quantity
+
+                              }).ToList();
+
+            if (stocksList.Count > 0)
+            {
+                StockDgv.DataSource = null;
+                StockDgv.DataSource = stocksList;
+            }
+            else
+            {
+                MessageBox.Show("✖ No results was found");
+
+                return;
+            }
         }
 
         private void ProductsManageBtn_Click(object sender, EventArgs e)
         {
-            new ProductForm().ShowDialog();
+            new ProductForm(this).ShowDialog();
         }
 
         private void UsersManageBtn_Click(object sender, EventArgs e)
@@ -53,11 +84,11 @@ namespace Inventory_Management
         }
         private void StockInBtn_Click(object sender, EventArgs e)
         {
-            new StockInForm().ShowDialog();
+            new StockInForm(this).ShowDialog();
         }
         private void StockOutBtn_Click(object sender, EventArgs e)
         {
-            new StockOutForm().ShowDialog();
+            new StockOutForm(this).ShowDialog();
         }
 
         public void ChangeToLoginStatus()
@@ -67,22 +98,46 @@ namespace Inventory_Management
             StockInBtn.Enabled = true;
             StockOutBtn.Enabled = true;
             SearchBtn.Enabled = true;
+            ReloadStocksBtn.Enabled = true;
             SearchTxt.Enabled = true;
             loggedIn = true;
+            LoadStocks();
             AuthBtn.Text = "Logout";
         }
 
-        public void ChangeToLogoutStatus()
+        private void ChangeToLogoutStatus()
         {
             ProductsManageBtn.Enabled = false;
             UsersManageBtn.Enabled = false;
             StockInBtn.Enabled = false;
             StockOutBtn.Enabled = false;
             SearchBtn.Enabled = false;
+            ReloadStocksBtn.Enabled = false;
             SearchTxt.Enabled = false;
+            StockDgv.DataSource = null;
             loggedIn = false;
             AuthBtn.Text = "Login";
         }
 
+        private void ReloadStocksBtn_Click(object sender, EventArgs e)
+        {
+            LoadStocks();
+        }
+        public void LoadStocks()
+        {
+            StockDgv.DataSource = null;
+            List<Stock> stocks = stockRepository.All();
+            var stocksList = (from stock in stocks
+                              select new
+                              {
+                                  Product = stock.Product.Name,
+                                  Barcode = stock.Product.Barcode,
+                                  Price = stock.Product.Price,
+                                  Quantity = stock.Quantity
+
+                              }).ToList();
+
+            StockDgv.DataSource = stocksList;
+        }
     }
 }
