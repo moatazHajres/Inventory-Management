@@ -42,18 +42,20 @@ namespace Inventory_Management
             // ProductCmbLbl
             // 
             this.ProductCmbLbl.AutoSize = true;
-            this.ProductCmbLbl.Location = new System.Drawing.Point(12, 17);
+            this.ProductCmbLbl.Location = new System.Drawing.Point(8, 12);
+            this.ProductCmbLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ProductCmbLbl.Name = "ProductCmbLbl";
-            this.ProductCmbLbl.Size = new System.Drawing.Size(63, 19);
+            this.ProductCmbLbl.Size = new System.Drawing.Size(44, 13);
             this.ProductCmbLbl.TabIndex = 11;
             this.ProductCmbLbl.Text = "Product";
             // 
             // QuantityLbl
             // 
             this.QuantityLbl.AutoSize = true;
-            this.QuantityLbl.Location = new System.Drawing.Point(12, 50);
+            this.QuantityLbl.Location = new System.Drawing.Point(8, 34);
+            this.QuantityLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.QuantityLbl.Name = "QuantityLbl";
-            this.QuantityLbl.Size = new System.Drawing.Size(69, 19);
+            this.QuantityLbl.Size = new System.Drawing.Size(46, 13);
             this.QuantityLbl.TabIndex = 10;
             this.QuantityLbl.Text = "Quantity";
             // 
@@ -61,9 +63,10 @@ namespace Inventory_Management
             // 
             this.ExportBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ExportBtn.Location = new System.Drawing.Point(412, 46);
+            this.ExportBtn.Location = new System.Drawing.Point(275, 31);
+            this.ExportBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ExportBtn.Name = "ExportBtn";
-            this.ExportBtn.Size = new System.Drawing.Size(375, 36);
+            this.ExportBtn.Size = new System.Drawing.Size(250, 25);
             this.ExportBtn.TabIndex = 9;
             this.ExportBtn.Text = "Export";
             this.ExportBtn.UseVisualStyleBackColor = true;
@@ -73,14 +76,15 @@ namespace Inventory_Management
             // 
             this.QuantityInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.QuantityInput.Location = new System.Drawing.Point(87, 46);
+            this.QuantityInput.Location = new System.Drawing.Point(58, 31);
+            this.QuantityInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QuantityInput.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
             this.QuantityInput.Name = "QuantityInput";
-            this.QuantityInput.Size = new System.Drawing.Size(319, 27);
+            this.QuantityInput.Size = new System.Drawing.Size(213, 20);
             this.QuantityInput.TabIndex = 8;
             // 
             // ProductsCmb
@@ -89,9 +93,10 @@ namespace Inventory_Management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProductsCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProductsCmb.FormattingEnabled = true;
-            this.ProductsCmb.Location = new System.Drawing.Point(87, 13);
+            this.ProductsCmb.Location = new System.Drawing.Point(58, 9);
+            this.ProductsCmb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ProductsCmb.Name = "ProductsCmb";
-            this.ProductsCmb.Size = new System.Drawing.Size(701, 27);
+            this.ProductsCmb.Size = new System.Drawing.Size(469, 21);
             this.ProductsCmb.TabIndex = 7;
             this.ProductsCmb.SelectionChangeCommitted += new System.EventHandler(this.ProductsCmb_SelectionChangeCommitted);
             // 
@@ -102,26 +107,28 @@ namespace Inventory_Management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ExportsDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ExportsDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ExportsDgv.Location = new System.Drawing.Point(12, 109);
+            this.ExportsDgv.Location = new System.Drawing.Point(8, 75);
+            this.ExportsDgv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ExportsDgv.Name = "ExportsDgv";
             this.ExportsDgv.RowHeadersWidth = 62;
             this.ExportsDgv.RowTemplate.Height = 29;
-            this.ExportsDgv.Size = new System.Drawing.Size(776, 329);
+            this.ExportsDgv.Size = new System.Drawing.Size(517, 225);
             this.ExportsDgv.TabIndex = 6;
             // 
             // StockOutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(533, 308);
             this.Controls.Add(this.ProductCmbLbl);
             this.Controls.Add(this.QuantityLbl);
             this.Controls.Add(this.ExportBtn);
             this.Controls.Add(this.QuantityInput);
             this.Controls.Add(this.ProductsCmb);
             this.Controls.Add(this.ExportsDgv);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "StockOutForm";
-            this.Text = "StockOutForm";
+            this.Text = "Stock Out Form";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StockOutForm_FormClosed);
             this.Load += new System.EventHandler(this.StockOutForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.QuantityInput)).EndInit();
