@@ -50,6 +50,9 @@ namespace Inventory_Management
             ReloadExports();
 
             MessageBox.Show("✔ Export Added Successfully");
+
+            ProductsCmb.SelectedIndex = -1;
+            QuantityInput.Maximum = 0;
         }
 
         private void ProductsCmb_SelectionChangeCommitted(object sender, EventArgs e)
@@ -59,7 +62,16 @@ namespace Inventory_Management
             List<Stock> stocks = stockRepository.All();
             Stock stock = stocks.First(s => s.Product.Id == id);
 
-            QuantityInput.Maximum = stock.Quantity;
+            if(stock.Quantity <= 0)
+            {
+                MessageBox.Show("The selected product is out of stock");
+                ProductsCmb.SelectedIndex = -1;
+                QuantityInput.Maximum = 0;
+            }
+            else
+            {
+                QuantityInput.Maximum = stock.Quantity;
+            }
         }
 
         private void LoadProducts()
@@ -89,6 +101,14 @@ namespace Inventory_Management
         private void StockOutForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             mainForm.LoadStocks();
+        }
+
+        private void QuantityInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (ProductsCmb.SelectedIndex > -1 && QuantityInput.Value > QuantityInput.Maximum)
+            {
+                QuantityInput.Value = QuantityInput.Maximum;
+            }
         }
     }
 }
