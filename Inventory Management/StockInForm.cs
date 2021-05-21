@@ -62,9 +62,18 @@ namespace Inventory_Management
 
         private void ReloadImports()
         {
+            List<Stock> stocks = stockRepository.SearchBy("0", "quantity", ">");
+            var stocksList = (from stock in stocks
+                              select new
+                              {
+                                  Product = stock.Product.Name,
+                                  Barcode = stock.Product.Barcode,
+                                  Price = stock.Product.Price,
+                                  Quantity = stock.Quantity
+
+                              }).ToList();
             ImportsDgv.DataSource = null;
-            ImportsDgv.DataSource = stockRepository.SearchBy("0", "quantity", ">");
-            ImportsDgv.Columns["Id"].Visible = false;
+            ImportsDgv.DataSource = stocksList;
         }
 
         private void StockInForm_FormClosed(object sender, FormClosedEventArgs e)

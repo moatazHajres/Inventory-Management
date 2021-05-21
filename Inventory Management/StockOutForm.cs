@@ -72,9 +72,18 @@ namespace Inventory_Management
 
         private void ReloadExports()
         {
+            List<Stock> stocks = stockRepository.SearchBy("0", "quantity", "<");
+            var stocksList = (from stock in stocks
+                              select new
+                              {
+                                  Product = stock.Product.Name,
+                                  Barcode = stock.Product.Barcode,
+                                  Price = stock.Product.Price,
+                                  Quantity = stock.Quantity
+
+                              }).ToList();
             ExportsDgv.DataSource = null;
-            ExportsDgv.DataSource = stockRepository.SearchBy("0", "quantity", "<");
-            ExportsDgv.Columns["Id"].Visible = false;
+            ExportsDgv.DataSource = stocksList;
         }
 
         private void StockOutForm_FormClosed(object sender, FormClosedEventArgs e)

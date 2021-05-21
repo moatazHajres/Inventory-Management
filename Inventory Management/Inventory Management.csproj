@@ -68,7 +68,6 @@
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Stock.cs" />
-    <Compile Include="Enums\StockAdjustmentAction.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
