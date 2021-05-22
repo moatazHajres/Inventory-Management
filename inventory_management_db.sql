@@ -27,4 +27,19 @@ CREATE TABLE stock (
         ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-INSERT INTO `users`(`name`, `email`, `password`) VALUES ('admin', 'admin@admin.com', 'admin');
+-- seed some data --
+INSERT INTO `users`(`name`, `email`, `password`) VALUES ('admin', 'admin@admin.com', '1156371652');
+
+INSERT INTO `products` (`name`, `barcode`, `price`) VALUES
+('Head & Shoulders Shampoo', '037000012146', 12),
+('Pepsi', '024131028795', 1.5),
+('Coca Cola', '049000028904', 1.5),
+('Lifebuoy Soap', '6221048051623', 3),
+('Oreo', '884912268396', 5),
+('Al Naseem Yoghurt', '710535729672', 1),
+('Spaghetti', '076808280098', 2),
+('Pringles Chips', '038000138416', 9),
+('La Vache Qui Rit Cheese', '3073781086652', 6),
+('Snickers Chocolate', '040000501671', 2.75),
+('Kinder Bueno Chocolate', '8000500073698', 4),
+('Kit Kat Chocolate', '034000002290', 3);
