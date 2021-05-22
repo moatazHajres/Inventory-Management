@@ -103,6 +103,7 @@ namespace Inventory_Management
             loggedIn = true;
             LoadStocks();
             AuthBtn.Text = "Logout";
+            AuthBtn.Image = Inventory_Management.Properties.Resources.logout;
         }
 
         private void ChangeToLogoutStatus()
@@ -117,6 +118,7 @@ namespace Inventory_Management
             StockDgv.DataSource = null;
             loggedIn = false;
             AuthBtn.Text = "Login";
+            AuthBtn.Image = Inventory_Management.Properties.Resources.login;
         }
 
         private void ReloadStocksBtn_Click(object sender, EventArgs e)
