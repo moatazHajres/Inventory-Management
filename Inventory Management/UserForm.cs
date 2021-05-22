@@ -26,7 +26,7 @@ namespace Inventory_Management
             EditUserBtn.Enabled = false;
             DeleteUserBtn.Enabled = false;
             userRepository = new UserRepository();
-            UsersDgv.DataSource = userRepository.All();
+            ReloadUsers();
         }
 
         private void AddUserBtn_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace Inventory_Management
             {
                 Name = UserNameTxt.Text.ToLower().Trim(),
                 Email = UserEmailTxt.Text,
-                Password = UserPasswordTxt.Text
+                Password = (UserPasswordTxt.Text.GetHashCode()).ToString()
             });
 
             ResetForm();
@@ -70,6 +70,7 @@ namespace Inventory_Management
             UsersDgv.DataSource = null;
             UsersDgv.DataSource = userRepository.All();
             UsersDgv.Columns["Password"].Visible = false;
+            UsersDgv.Columns["Id"].DisplayIndex = 0;
         }
 
         public void ResetForm()
@@ -91,15 +92,16 @@ namespace Inventory_Management
         {
             if (e.RowIndex > -1)
             {
-                EditUserBtn.Enabled = true;
+                //EditUserBtn.Enabled = true;
                 DeleteUserBtn.Enabled = true;
                 UserNameTxt.Text = UsersDgv.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                 UserEmailTxt.Text = UsersDgv.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-                UserPasswordTxt.Text = UsersDgv.Rows[e.RowIndex].Cells["Password"].Value.ToString();
+                //UserPasswordTxt.Text = UsersDgv.Rows[e.RowIndex].Cells["Password"].Value.ToString();
                 selectedUserId = (int)UsersDgv.Rows[e.RowIndex].Cells["Id"].Value;
             }
         }
 
+        /*
         private void EditUserBtn_Click(object sender, EventArgs e)
         {
             if (selectedUserId > 0)
@@ -117,7 +119,7 @@ namespace Inventory_Management
                 {
                     Name = UserNameTxt.Text.ToLower().Trim(),
                     Email = UserEmailTxt.Text,
-                    Password = UserPasswordTxt.Text
+                    Password = (UserPasswordTxt.Text.GetHashCode()).ToString()
                 });
 
                 ResetForm();
@@ -126,16 +128,17 @@ namespace Inventory_Management
                 MessageBox.Show("✔ User Updated Successfully");
             }
         }
+        */
 
         private void UsersDgv_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                EditUserBtn.Enabled = true;
+                //EditUserBtn.Enabled = true;
                 DeleteUserBtn.Enabled = true;
                 UserNameTxt.Text = UsersDgv.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                 UserEmailTxt.Text = UsersDgv.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-                UserPasswordTxt.Text = UsersDgv.Rows[e.RowIndex].Cells["Password"].Value.ToString();
+                //UserPasswordTxt.Text = UsersDgv.Rows[e.RowIndex].Cells["Password"].Value.ToString();
                 selectedUserId = (int)UsersDgv.Rows[e.RowIndex].Cells["Id"].Value;
             }
         }

@@ -29,7 +29,7 @@ namespace Inventory_Management
             EditProductBtn.Enabled = false;
             DeleteProductBtn.Enabled = false;
             productRepository = new ProductRepository();
-            ProductsDgv.DataSource = productRepository.All();
+            ReloadProducts();
         }
 
         private void AddProductBtn_Click(object sender, EventArgs e)
@@ -62,6 +62,7 @@ namespace Inventory_Management
         {
             ProductsDgv.DataSource = null;
             ProductsDgv.DataSource = productRepository.All();
+            ProductsDgv.Columns["Id"].DisplayIndex = 0;
         }
 
         public void ResetForm()

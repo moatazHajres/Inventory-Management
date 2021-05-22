@@ -63,7 +63,7 @@ namespace Inventory_Management
                 return;
             }
 
-            if (!String.Equals(UserPasswordTxt.Text, results[0].Password))
+            if (!String.Equals((UserPasswordTxt.Text.GetHashCode()).ToString(), results[0].Password.ToString()))
             {
                 MessageBox.Show("✖ Invalid credentials");
 
