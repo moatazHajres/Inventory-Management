@@ -60,9 +60,9 @@ namespace Inventory_Management
             int id = ((Product)((ComboBox)sender).SelectedItem).Id;
 
             List<Stock> stocks = stockRepository.All();
-            Stock stock = stocks.First(s => s.Product.Id == id);
+            Stock stock = stocks.FirstOrDefault(s => s.Product.Id == id);
 
-            if(stock.Quantity <= 0)
+            if(stock == null || stock.Quantity <= 0)
             {
                 MessageBox.Show("The selected product is out of stock");
                 ProductsCmb.SelectedIndex = -1;

@@ -49,9 +49,10 @@ namespace Inventory_Management
             // 
             // ResetFieldsBtn
             // 
-            this.ResetFieldsBtn.Location = new System.Drawing.Point(9, 373);
+            this.ResetFieldsBtn.Location = new System.Drawing.Point(6, 255);
+            this.ResetFieldsBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ResetFieldsBtn.Name = "ResetFieldsBtn";
-            this.ResetFieldsBtn.Size = new System.Drawing.Size(369, 42);
+            this.ResetFieldsBtn.Size = new System.Drawing.Size(246, 29);
             this.ResetFieldsBtn.TabIndex = 23;
             this.ResetFieldsBtn.Text = "Reset Fields";
             this.ResetFieldsBtn.UseVisualStyleBackColor = true;
@@ -59,9 +60,10 @@ namespace Inventory_Management
             // 
             // DeleteUserBtn
             // 
-            this.DeleteUserBtn.Location = new System.Drawing.Point(9, 324);
+            this.DeleteUserBtn.Location = new System.Drawing.Point(6, 222);
+            this.DeleteUserBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeleteUserBtn.Name = "DeleteUserBtn";
-            this.DeleteUserBtn.Size = new System.Drawing.Size(369, 42);
+            this.DeleteUserBtn.Size = new System.Drawing.Size(246, 29);
             this.DeleteUserBtn.TabIndex = 22;
             this.DeleteUserBtn.Text = "Delete User";
             this.DeleteUserBtn.UseVisualStyleBackColor = true;
@@ -69,9 +71,10 @@ namespace Inventory_Management
             // 
             // EditUserBtn
             // 
-            this.EditUserBtn.Location = new System.Drawing.Point(9, 276);
+            this.EditUserBtn.Location = new System.Drawing.Point(6, 189);
+            this.EditUserBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EditUserBtn.Name = "EditUserBtn";
-            this.EditUserBtn.Size = new System.Drawing.Size(369, 42);
+            this.EditUserBtn.Size = new System.Drawing.Size(246, 29);
             this.EditUserBtn.TabIndex = 21;
             this.EditUserBtn.Text = "Update User";
             this.EditUserBtn.UseVisualStyleBackColor = true;
@@ -80,18 +83,20 @@ namespace Inventory_Management
             // UserSearchLbl
             // 
             this.UserSearchLbl.AutoSize = true;
-            this.UserSearchLbl.Location = new System.Drawing.Point(380, 18);
+            this.UserSearchLbl.Location = new System.Drawing.Point(253, 12);
+            this.UserSearchLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UserSearchLbl.Name = "UserSearchLbl";
-            this.UserSearchLbl.Size = new System.Drawing.Size(56, 19);
+            this.UserSearchLbl.Size = new System.Drawing.Size(41, 13);
             this.UserSearchLbl.TabIndex = 25;
             this.UserSearchLbl.Text = "Search";
             // 
             // SearchBtn
             // 
             this.SearchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchBtn.Location = new System.Drawing.Point(820, 38);
+            this.SearchBtn.Location = new System.Drawing.Point(547, 26);
+            this.SearchBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(150, 44);
+            this.SearchBtn.Size = new System.Drawing.Size(100, 30);
             this.SearchBtn.TabIndex = 25;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
@@ -100,9 +105,10 @@ namespace Inventory_Management
             // ReloadUserssBtn
             // 
             this.ReloadUserssBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ReloadUserssBtn.Location = new System.Drawing.Point(976, 38);
+            this.ReloadUserssBtn.Location = new System.Drawing.Point(651, 26);
+            this.ReloadUserssBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReloadUserssBtn.Name = "ReloadUserssBtn";
-            this.ReloadUserssBtn.Size = new System.Drawing.Size(146, 44);
+            this.ReloadUserssBtn.Size = new System.Drawing.Size(97, 30);
             this.ReloadUserssBtn.TabIndex = 26;
             this.ReloadUserssBtn.Text = "Reload Users";
             this.ReloadUserssBtn.UseVisualStyleBackColor = true;
@@ -112,36 +118,40 @@ namespace Inventory_Management
             // 
             this.SearchUsersTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchUsersTxt.Location = new System.Drawing.Point(384, 38);
+            this.SearchUsersTxt.Location = new System.Drawing.Point(256, 26);
+            this.SearchUsersTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchUsersTxt.Multiline = true;
             this.SearchUsersTxt.Name = "SearchUsersTxt";
-            this.SearchUsersTxt.Size = new System.Drawing.Size(432, 42);
+            this.SearchUsersTxt.Size = new System.Drawing.Size(289, 30);
             this.SearchUsersTxt.TabIndex = 24;
             this.SearchUsersTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchUsersTxt_KeyDown);
             // 
             // UserEmailLbl
             // 
             this.UserEmailLbl.AutoSize = true;
-            this.UserEmailLbl.Location = new System.Drawing.Point(4, 88);
+            this.UserEmailLbl.Location = new System.Drawing.Point(3, 60);
+            this.UserEmailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UserEmailLbl.Name = "UserEmailLbl";
-            this.UserEmailLbl.Size = new System.Drawing.Size(57, 19);
+            this.UserEmailLbl.Size = new System.Drawing.Size(36, 13);
             this.UserEmailLbl.TabIndex = 21;
             this.UserEmailLbl.Text = "*Email";
             // 
             // UserNameLbl
             // 
             this.UserNameLbl.AutoSize = true;
-            this.UserNameLbl.Location = new System.Drawing.Point(4, 18);
+            this.UserNameLbl.Location = new System.Drawing.Point(3, 12);
+            this.UserNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UserNameLbl.Name = "UserNameLbl";
-            this.UserNameLbl.Size = new System.Drawing.Size(59, 19);
+            this.UserNameLbl.Size = new System.Drawing.Size(39, 13);
             this.UserNameLbl.TabIndex = 20;
             this.UserNameLbl.Text = "*Name";
             // 
             // AddUserBtn
             // 
-            this.AddUserBtn.Location = new System.Drawing.Point(9, 227);
+            this.AddUserBtn.Location = new System.Drawing.Point(6, 155);
+            this.AddUserBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddUserBtn.Name = "AddUserBtn";
-            this.AddUserBtn.Size = new System.Drawing.Size(369, 42);
+            this.AddUserBtn.Size = new System.Drawing.Size(246, 29);
             this.AddUserBtn.TabIndex = 20;
             this.AddUserBtn.Text = "Save User";
             this.AddUserBtn.UseVisualStyleBackColor = true;
@@ -149,18 +159,20 @@ namespace Inventory_Management
             // 
             // UserEmailTxt
             // 
-            this.UserEmailTxt.Location = new System.Drawing.Point(9, 110);
+            this.UserEmailTxt.Location = new System.Drawing.Point(6, 75);
+            this.UserEmailTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UserEmailTxt.Multiline = true;
             this.UserEmailTxt.Name = "UserEmailTxt";
-            this.UserEmailTxt.Size = new System.Drawing.Size(367, 42);
+            this.UserEmailTxt.Size = new System.Drawing.Size(246, 30);
             this.UserEmailTxt.TabIndex = 18;
             // 
             // UserNameTxt
             // 
-            this.UserNameTxt.Location = new System.Drawing.Point(9, 38);
+            this.UserNameTxt.Location = new System.Drawing.Point(6, 26);
+            this.UserNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UserNameTxt.Multiline = true;
             this.UserNameTxt.Name = "UserNameTxt";
-            this.UserNameTxt.Size = new System.Drawing.Size(367, 42);
+            this.UserNameTxt.Size = new System.Drawing.Size(246, 30);
             this.UserNameTxt.TabIndex = 17;
             // 
             // UsersDgv
@@ -171,11 +183,12 @@ namespace Inventory_Management
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UsersDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.UsersDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UsersDgv.Location = new System.Drawing.Point(382, 88);
+            this.UsersDgv.Location = new System.Drawing.Point(255, 60);
+            this.UsersDgv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UsersDgv.Name = "UsersDgv";
             this.UsersDgv.RowHeadersWidth = 62;
             this.UsersDgv.RowTemplate.Height = 29;
-            this.UsersDgv.Size = new System.Drawing.Size(740, 351);
+            this.UsersDgv.Size = new System.Drawing.Size(493, 240);
             this.UsersDgv.TabIndex = 27;
             this.UsersDgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDgv_CellDoubleClick);
             this.UsersDgv.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.UsersDgv_RowHeaderMouseClick);
@@ -183,26 +196,28 @@ namespace Inventory_Management
             // UserPasswordLbl
             // 
             this.UserPasswordLbl.AutoSize = true;
-            this.UserPasswordLbl.Location = new System.Drawing.Point(4, 156);
+            this.UserPasswordLbl.Location = new System.Drawing.Point(3, 107);
+            this.UserPasswordLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UserPasswordLbl.Name = "UserPasswordLbl";
-            this.UserPasswordLbl.Size = new System.Drawing.Size(85, 19);
+            this.UserPasswordLbl.Size = new System.Drawing.Size(57, 13);
             this.UserPasswordLbl.TabIndex = 31;
             this.UserPasswordLbl.Text = "*Password";
             // 
             // UserPasswordTxt
             // 
-            this.UserPasswordTxt.Location = new System.Drawing.Point(9, 178);
+            this.UserPasswordTxt.Location = new System.Drawing.Point(6, 122);
+            this.UserPasswordTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UserPasswordTxt.Multiline = true;
             this.UserPasswordTxt.Name = "UserPasswordTxt";
-            this.UserPasswordTxt.Size = new System.Drawing.Size(367, 42);
+            this.UserPasswordTxt.PasswordChar = '*';
+            this.UserPasswordTxt.Size = new System.Drawing.Size(246, 30);
             this.UserPasswordTxt.TabIndex = 19;
-            this.UserPasswordTxt.UseSystemPasswordChar = true;
             // 
             // UserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 450);
+            this.ClientSize = new System.Drawing.Size(753, 308);
             this.Controls.Add(this.UserPasswordLbl);
             this.Controls.Add(this.UserPasswordTxt);
             this.Controls.Add(this.ResetFieldsBtn);
@@ -218,6 +233,7 @@ namespace Inventory_Management
             this.Controls.Add(this.UserEmailTxt);
             this.Controls.Add(this.UserNameTxt);
             this.Controls.Add(this.UsersDgv);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UserForm";
             this.Text = "User Form";
             this.Load += new System.EventHandler(this.UserForm_Load);
