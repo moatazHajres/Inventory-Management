@@ -38,7 +38,7 @@ namespace Inventory_Management
 
             List<Stock> stocks = stockRepository.All();
             var stocksList = (from stock in stocks
-                              where stock.Product.Name == SearchTxt.Text || stock.Product.Barcode == SearchTxt.Text
+                              where (stock.Product.Name.Contains(SearchTxt.Text) || stock.Product.Barcode.Contains(SearchTxt.Text))
                               select new
                               {
                                   Product = stock.Product.Name,
